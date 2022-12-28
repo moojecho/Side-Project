@@ -1,10 +1,12 @@
 import styled from "styled-components";
-
+import { useNavigate } from 'react-router-dom';
 import {logo} from "../../static/index";
 
 import {LoginButton,SignButton} from "./index";
 
 const Header = () => {
+  const navigator = useNavigate();
+  
   const logout = () => {
     window.localStorage.removeItem("refresh-token");
     window.localStorage.removeItem("authorization");
