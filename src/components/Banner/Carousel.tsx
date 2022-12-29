@@ -1,11 +1,10 @@
-import * as React from "react";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import * as allTypes from './type';
 
 const Carousel = () => {
   const TOTAL_SLIDES : allTypes.TotalSlides = 2;
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
   const slideRef = useRef<HTMLInputElement>(null);
 
   const NextSlide = () => {
