@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import LoginHeader from '../components/Header/LoginHeader';
 import SignIn from '../components/Login/SignIn';
 
 
 const LoginPage = () => {
   return (
     <LoginPageBox>
-      <LoginHeader />
       <SignIn/>
     </LoginPageBox>
   );

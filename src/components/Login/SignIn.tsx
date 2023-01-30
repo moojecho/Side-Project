@@ -2,43 +2,31 @@
 // import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
-// import { useDispatch } from "react-redux";
+
+// import * as allTypes from './type';
 
 // const SignIn = () => {
 //   const navigate = useNavigate();
-//   const dispatch = useDispatch();
 
 //   // data 입력 state
 //   const [loginData, setloginData] = useState({ email: "", password: "" });
 
 //   //input 데이터 저장하기
-//   const changeInput = (e) => {
-//     const { value, id } = e.target;
+//   const changeInput = (e:React.ChangeEvent<HTMLInputElement>) => {
+//     const { value, id } : allTypes.login = e.target;
 //     setloginData({ ...loginData, [id]: value });
 //   };
 
-//   // submit 이벤트
-//   const submitLogin = async (e) => {
-//     // 새로고침 막기
-//     e.preventDefault();
-//     // 가입되지 않은 유저 확인
-//     const loginState = await dispatch();
-//     if (loginState.type === "log/LOGIN_LOG/rejected") {
-//       alert("아이디 혹은 비밀번호가 틀렸습니다.");
-//     }
-//     if (loginState.payload) {
-//       navigate("/");
-//     }
-//   };
+ 
 //   return (
 //     <LoginLayoutBox>
-//       <LoginBox onSubmit={submitLogin}>
+//       <LoginBox>
 //         <LoginTitle>Login</LoginTitle>
 //         <LoginIdBox>
 //           <LoginEmailinput
 //             id="email"
 //             type="email"
-//             onChange={changeInput}
+//             onChange={(e)=>changeInput(e)}
 //             placeholder="이메일"
 //             required
 //           ></LoginEmailinput>

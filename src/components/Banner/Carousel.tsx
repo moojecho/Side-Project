@@ -34,10 +34,12 @@ const Carousel = () => {
       slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
       if (currentSlide === -1) {
         slideRef.current.style.transform = `translateX(100vw)`;
+        console.log(slideRef.current.style);
       }
     }
   }, [currentSlide]);
 
+  console.log(currentSlide);
   return (
     <CarouselLayout>
       <CarouselLeftButton onClick={() => PrevSlide()}>{"<"}</CarouselLeftButton>
@@ -56,10 +58,13 @@ const Carousel = () => {
 };
 
 const CarouselLayout = styled.div`
+  border: 1px solid red;
+  background-color: red;
   width: 100vw;
   height: 44vh;
   display: flex;
   align-items: center;
+  margin-top: -5px;
 `;
 
 const SlideLayout = styled.div`
@@ -69,11 +74,12 @@ const SlideLayout = styled.div`
 const CarouselImage = styled.img`
   // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
   translate: -100vw;
+  display: inline-block;
+  content: "";
+  border: none;
   width: 100vw;
   height: 43vh;
   background-color: green;
-  background-size: contain;
-  flex: none;
 `;
 
 const CarouselLeftButton = styled.button`

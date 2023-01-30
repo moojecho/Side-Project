@@ -1,0 +1,1 @@
+export type login = {value: string, id: string};
