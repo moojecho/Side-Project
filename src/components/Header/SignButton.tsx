@@ -2,12 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const SignButton = () => {
-  
-  
-    return <Sign_Button>회원가입</Sign_Button>;
+  return (
+    <SignButtonLayout>
+      <SignBtn>회원가입</SignBtn>
+    </SignButtonLayout>
+  );
 };
 
-const Sign_Button = styled.div`
+const SignButtonLayout = styled.div`
+  width: 72px;
+  height: 37px;
+`;
+
+const SignBtn = styled.button`
   width: 70px;
   height: 35px;
   color: white;
