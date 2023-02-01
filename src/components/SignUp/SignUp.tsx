@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { __signup } from "../../redux/modules/signupSlice";
 
 //회원가입 form 컴포넌트
 export default function SignUpForm() {
@@ -17,31 +16,31 @@ export default function SignUpForm() {
     passwordConfirm: "",
   });
 
-  //input 데이터 저장하기
-  const changeInput = (e) => {
-    const { value, id } = e.target;
-    setsignData({ ...signData, [id]: value });
-  };
+  // //input 데이터 저장하기
+  // const changeInput = (e) => {
+  //   const { value, id } = e.target;
+  //   setsignData({ ...signData, [id]: value });
+  // };
 
-  // 회원가입 이벤트
-  const submitLogin = async (e) => {
-    e.preventDefault();
+  // // 회원가입 이벤트
+  // const submitLogin = async (e) => {
+  //   e.preventDefault();
 
-    // 회원가입 성공시 로그인 페이지 이동
-    const checkState = await dispatch(__signup(signData));
-    if (checkState.payload) {
-      navigate("/login");
-      //비밀번호 확인이 다를 경우
-    } else if (signData.passwordConfirm !== signData.password) {
-      alert("입력하신 비밀번호가 다릅니다.");
-    } else {
-      alert("이미 사용중인 닉네임입니다.");
-    }
-  };
+  //   // 회원가입 성공시 로그인 페이지 이동
+  //   const checkState = await dispatch(__signup(signData));
+  //   if (checkState.payload) {
+  //     navigate("/login");
+  //     //비밀번호 확인이 다를 경우
+  //   } else if (signData.passwordConfirm !== signData.password) {
+  //     alert("입력하신 비밀번호가 다릅니다.");
+  //   } else {
+  //     alert("이미 사용중인 닉네임입니다.");
+  //   }
+  // };
 
   return (
     <SignUpLayoutBox>
-      <SignUpDiv onSubmit={submitLogin}>
+      {/* <SignUpDiv onSubmit={submitLogin}>
         <SignUpTitle>Sign Up</SignUpTitle>
 
         <SignUpSubTitle>이메일</SignUpSubTitle>
@@ -93,7 +92,7 @@ export default function SignUpForm() {
         >
           로그인
         </LoginSignUpButton>
-      </SignUpDiv>
+      </SignUpDiv> */}
     </SignUpLayoutBox>
   );
 }

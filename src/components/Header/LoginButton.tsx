@@ -1,11 +1,20 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
+import {changeToggle} from '../../redux/modules/ModalSlice';
+
 const LoginButton = () => {
+  const dispatch = useDispatch();
   
+  const loginToggle:boolean = useSelector((state:any) => state.modal.loginModal.toggle)
+
+  const loginModalOn = (toggle:boolean) =>{
+    dispatch(changeToggle(toggle));
+  }
   
     return <LoginButtonLayout>
-      <LoginBtn>
+      <LoginBtn onClick={()=>loginModalOn(loginToggle)}> 
         로그인
       </LoginBtn>
       
