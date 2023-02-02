@@ -1,22 +1,23 @@
-import * as React from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import {Header} from "../components/Header/index"
-import {Banner} from "../components/Banner/index"
+import { Header, Banner, LoginModal } from "../components/index";
 
 const MainPage = () => {
- 
+  const loginToggle = useSelector(
+    (state: any) => state.modal.loginModal.toggle
+  );
+
   return (
-  <div>
-    <Header/>
-    <Banner/>
-  </div>
+    <div>
+      <Header />
+      <Banner />
+      {loginToggle ? <LoginModal /> : null}
+    </div>
   );
 };
 
 export default MainPage;
-
-
-
 
 // const outerRef = useRef();
 // const [scrollIndex, setScrollIndex] = useState(1);

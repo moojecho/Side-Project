@@ -16,10 +16,7 @@ export const ModalSlice = createSlice({
   initialState,
   reducers: {
     changeToggle: (state, action: PayloadAction<boolean>) => {
-      console.log(state.loginModal,'state');
-      console.log(!action.payload,'action');
       state.loginModal = {...state.loginModal,toggle:!action.payload};
-      console.log(state.loginModal,'state2');
     },
   },
 
