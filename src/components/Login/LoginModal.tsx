@@ -4,26 +4,31 @@ import styled from "styled-components";
 const LoginModal = () => {
   return (
     <ModalLayout>
+      <Div></Div>
     </ModalLayout>
   );
 };
 
 const ModalLayout = styled.div`
-  width: 400px;
+  width: 300px;
   height: 400px;
-    background-color: gray;
-    border-radius: 20px;
-    position: fixed;
-left: 50%;
-top: 50%;
-z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
--webkit-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
--moz-transform: translate(-50%, -50%);
--o-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 20px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
 `;
 
+const Div = styled.div`
+  width: 100px;
+  height: 50px;
+  background-color: red;
+`;
 
 export default LoginModal;
