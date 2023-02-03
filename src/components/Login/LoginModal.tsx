@@ -1,13 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+
+import {changeToggle} from '../../redux/modules/ModalSlice';
 
 const LoginModal = () => {
+  const dispatch = useDispatch();
+
+  const cancleLoginModal = (toggle:boolean) => {
+    dispatch(changeToggle(toggle));
+  }
+  
   return (
     <ModalLayout>
-      <ModalBackGround />
+      <ModalBackGround onClick={()=>cancleLoginModal(true)}/>
       <Modal>
-        <KakaoButton/>
-        <GithubButton/>
+        <CancleLayout>
+          <CancleButton onClick={()=>cancleLoginModal(true)}>✖</CancleButton>
+        </CancleLayout>
+        <KakaoButton />
+        <GithubButton />
       </Modal>
     </ModalLayout>
   );
@@ -46,6 +58,22 @@ const Modal = styled.div`
   top: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
+`;
+
+const CancleLayout = styled.div`
+  width: 255px;
+  height: 25px;
+  margin-top: 20px;
+  margin-bottom: -55px;
+  display: flex;
+  justify-content: right;
+`;
+
+const CancleButton = styled.button`
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
 `;
 
 const KakaoButton = styled.button`
