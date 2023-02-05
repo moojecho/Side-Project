@@ -58,8 +58,6 @@ const Carousel = () => {
 };
 
 const CarouselLayout = styled.div`
-  border: 1px solid red;
-  background-color: red;
   width: 100vw;
   height: 44vh;
   display: flex;
@@ -74,6 +72,7 @@ const SlideLayout = styled.div`
 const CarouselImage = styled.img`
   // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
   translate: -100vw;
+  margin-top: -12px;
   display: inline-block;
   content: "";
   border: none;
