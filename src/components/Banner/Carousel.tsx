@@ -34,7 +34,6 @@ const Carousel = () => {
       slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
       if (currentSlide === -1) {
         slideRef.current.style.transform = `translateX(100vw)`;
-        console.log(slideRef.current.style);
       }
     }
   }, [currentSlide]);
@@ -59,10 +58,10 @@ const Carousel = () => {
 
 const CarouselLayout = styled.div`
   width: 100vw;
-  height: 44vh;
+  height: 43vh;
   display: flex;
   align-items: center;
-  margin-top: -5px;
+  margin-top: -15px;
 `;
 
 const SlideLayout = styled.div`
@@ -72,7 +71,6 @@ const SlideLayout = styled.div`
 const CarouselImage = styled.img`
   // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
   translate: -100vw;
-  margin-top: -12px;
   display: inline-block;
   content: "";
   border: none;

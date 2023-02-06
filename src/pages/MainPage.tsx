@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Header, Banner, LoginModal } from "../components/index";
+import { Header, Banner, LoginModal,Map } from "../components/index";
 
 const MainPage = () => {
   const loginToggle = useSelector(
@@ -12,6 +12,7 @@ const MainPage = () => {
     <div>
       <Header />
       <Banner />
+      <Map/>
       {loginToggle ? <LoginModal /> : null}
     </div>
   );
