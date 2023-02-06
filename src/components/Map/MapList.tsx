@@ -26,7 +26,7 @@ const MapCard = styled.div`
   min-width: 180px;
   width: 10vw;
   height: 30vh;
-  border: 1px solid gray;
+  background-color: #dbdbdb;
   border-radius: 10px;
   margin: auto;
 `;
