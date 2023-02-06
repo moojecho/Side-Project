@@ -1,21 +1,20 @@
 import * as React from "react";
 import styled from "styled-components";
 
-const Map = () => {
- 
+const MapHeader = () => {
   return (
     <MapHeaderLayout>
-        <MapTitle>위치</MapTitle>
+      <MapTitle>위치</MapTitle>
     </MapHeaderLayout>
   );
 };
 
 const MapHeaderLayout = styled.div`
-width: 78vw;
-`
-
-const MapTitle = styled.h2`
-    margin: 25px 16px;
+  width: 78vw;
 `;
 
-export default Map;
+const MapTitle = styled.h2`
+  margin: 25px 16px;
+`;
+
+export default MapHeader;

@@ -1,13 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import { MapHeaderLayout,MapList } from "./index";
+import { MapHeader,MapList } from "./index";
 
 const Map = () => {
  
   return (
     <MapLayout>
-        <MapHeaderLayout/>
+        <MapHeader/>
         <MapList/>
     </MapLayout>
   );
