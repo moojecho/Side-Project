@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import * as allTypes from './type';
 
+import {banner1,banner2} from '../../static/index';
+
 const Carousel = () => {
   const TOTAL_SLIDES : allTypes.TotalSlides = 2;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -44,8 +46,8 @@ const Carousel = () => {
       <CarouselLeftButton onClick={() => PrevSlide()}>{"<"}</CarouselLeftButton>
       <SlideLayout ref={slideRef}>
         <CarouselImage style={{ background: "orange" }} />
-        <CarouselImage />
-        <CarouselImage style={{ background: "black" }} />
+        <CarouselImage src={banner2} />
+        <CarouselImage src={banner1} />
         <CarouselImage style={{ background: "orange" }} />
         {currentSlide > TOTAL_SLIDES ? <CarouselImage /> : null}
       </SlideLayout>
@@ -58,10 +60,10 @@ const Carousel = () => {
 
 const CarouselLayout = styled.div`
   width: 100vw;
-  height: 43vh;
+  height: 36vh;
   display: flex;
   align-items: center;
-  margin-top: -15px;
+  margin-top: -96px;
 `;
 
 const SlideLayout = styled.div`
@@ -75,7 +77,7 @@ const CarouselImage = styled.img`
   content: "";
   border: none;
   width: 100vw;
-  height: 43vh;
+  height: 35vh;
   background-color: green;
 `;
 

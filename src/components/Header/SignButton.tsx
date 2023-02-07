@@ -18,7 +18,7 @@ const SignBtn = styled.button`
   width: 70px;
   height: 35px;
   color: white;
-  background-color: orange;
+  background-color: #e4750e;
   border: 1px solid #dbdbdb;
   border-radius: 10px;
   display: flex;
