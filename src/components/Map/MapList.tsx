@@ -13,8 +13,8 @@ const MapList = () => {
   useEffect(()=>{
     const container = document.getElementById("map1");
     const option = {
-      center:new window.kakao.maps.LatLng(33.450701, 126.570667),
-      level:3
+      center:new window.kakao.maps.LatLng(37.566826, 126.9786567),
+      level:5
     };
     const map = new window.kakao.maps.Map(container,option);
   },[])
