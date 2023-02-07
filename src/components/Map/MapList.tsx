@@ -1,14 +1,46 @@
-import * as React from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
+import { kakaoIcon } from "../../static";
+
+declare global {
+  interface Window {
+    kakao:any;
+  }
+}
 
 const MapList = () => {
+
+  useEffect(()=>{
+    const container = document.getElementById("map1");
+    const option = {
+      center:new window.kakao.maps.LatLng(33.450701, 126.570667),
+      level:3
+    };
+    const map = new window.kakao.maps.Map(container,option);
+  },[])
+
   return (
     <MapListLayout>
-      <MapCard/>
-      <MapCard/>
-      <MapCard/>
-      <MapCard/>
-      <MapCard/>
+      <MapCard>
+        <CatPosition id="map1"/>
+        <PositionInformation />
+      </MapCard>
+      <MapCard>
+        <CatPosition id="map2"/>
+        <PositionInformation />
+      </MapCard>
+      <MapCard>
+        <CatPosition id="map3"/>
+        <PositionInformation />
+      </MapCard>
+      <MapCard>
+        <CatPosition id="map4"/>
+        <PositionInformation />
+      </MapCard>
+      <MapCard>
+        <CatPosition id="map5"/>
+        <PositionInformation />
+      </MapCard>
     </MapListLayout>
   );
 };
@@ -29,6 +61,22 @@ const MapCard = styled.div`
   background-color: #dbdbdb;
   border-radius: 10px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CatPosition = styled.div`
+  width: 160px;
+  height: 22vh;
+  margin-bottom: 10px;
+`;
+
+const PositionInformation = styled.div`
+  width: 160px;
+  height: 5vh;
+  background-color: red;
 `;
 
 export default MapList;
