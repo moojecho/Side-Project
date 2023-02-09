@@ -13,7 +13,8 @@ const Banner = () => {
 
 const BannerLayout = styled.div`
   width: 100vw;
-  height: 45vh;
+  height: 32vh;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;

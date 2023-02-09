@@ -1,6 +1,5 @@
 import React,{useEffect} from "react";
 import styled from "styled-components";
-import { kakaoIcon } from "../../static";
 
 declare global {
   interface Window {
@@ -23,7 +22,7 @@ const MapList = () => {
     <MapListLayout>
       <MapCard>
         <CatPosition id="map1"/>
-        <PositionInformation />
+        <PositionInformation>{`서울특별시 중구 세종대로 110 서울특별시청`}</PositionInformation>
       </MapCard>
       <MapCard>
         <CatPosition id="map2"/>
@@ -64,7 +63,6 @@ const MapCard = styled.div`
   height: 30vh;
   background-color: #dbdbdb;
   border-radius: 10px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +78,10 @@ const CatPosition = styled.div`
 const PositionInformation = styled.div`
   width: 160px;
   height: 5vh;
-  background-color: red;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  white-space: pre-line;
 `;
 
 export default MapList;

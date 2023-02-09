@@ -1,19 +1,22 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Header, Banner, LoginModal,Map } from "../components/index";
+import { Header, Banner, LoginModal,Map,AddMapModal } from "../components/index";
 
 const MainPage = () => {
   const loginToggle = useSelector(
     (state: any) => state.modal.loginModal.toggle
   );
-
+  const addMapToggle = useSelector(
+    (state: any) => state.modal.addMapModal.toggle
+  );  
   return (
     <div>
       <Header />
       <Banner />
       <Map/>
       {loginToggle ? <LoginModal /> : null}
+      {addMapToggle ? <AddMapModal /> : null}
     </div>
   );
 };

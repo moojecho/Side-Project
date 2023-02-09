@@ -4,7 +4,7 @@ import styled from "styled-components";
 const MapHeader = () => {
   return (
     <MapHeaderLayout>
-      <MapTitle>위치</MapTitle>
+      <MapTitle>고양이를 만나볼까요?! 🐈</MapTitle>
     </MapHeaderLayout>
   );
 };
@@ -14,7 +14,7 @@ const MapHeaderLayout = styled.div`
 `;
 
 const MapTitle = styled.h2`
-  margin: 25px 16px;
+  margin: 20px 5px;
 `;
 
 export default MapHeader;
