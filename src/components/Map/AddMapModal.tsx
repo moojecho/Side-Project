@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
-import { kakaoIcon, githubIcon } from "../../static/index";
+import { logo } from "../../static/index";
 
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
@@ -18,17 +18,19 @@ const AddMapModal = () => {
       <ModalBackGround onClick={() => cancleLoginModal(true)} />
       <Modal>
         <CancleLayout>
+          <LogoImage src={logo}/>
           <CancleButton onClick={() => cancleLoginModal(true)}>✖</CancleButton>
         </CancleLayout>
+        <ImageLayout>이미지 첨부</ImageLayout>
         <InputLayout>
-        <CatInput>
-        </CatInput>
+        길냥이 마릿수
+        <CatInput/>
         </InputLayout>
         <InputLayout>
-        <CatInput>
-        </CatInput>
+        주소
+        <CatInput/>
         </InputLayout>
-     
+      <AddButton>추가</AddButton>
       </Modal>
     </ModalLayout>
   );
@@ -70,13 +72,21 @@ const Modal = styled.div`
 `;
 
 const CancleLayout = styled.div`
-  width: 255px;
-  height: 25px;
-  background-color: blue;
+  width: 460px;
+  height: 50px;
   margin: auto;
+  margin-top: 10px;
   display: flex;
   justify-content: right;
 `;
+
+const LogoImage =  styled.img`
+  width: 80px;
+  height: 65px;
+  margin: auto;
+  position: fixed;
+  right: 43%;
+`
 
 const CancleButton = styled.button`
   font-size: 20px;
@@ -85,34 +95,50 @@ const CancleButton = styled.button`
   cursor: pointer;
 `;
 
-const InputLayout = styled.div`
+const ImageLayout = styled.div`
   width: 250px;
-  height: 80px;
-  background-color: black;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: -20px;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const InputLayout = styled.div`
+  width: 250px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
   margin: auto;
-  margin-top: -50px;
+  margin-top: -40px;
 `;
 
 const CatInput = styled.input`
-  width: 200px;
+  width: 240px;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 0.5px solid gray;
   border-radius: 10px;
-  margin: auto;
-  font-weight: bold;
+  margin: auto 0px;
   cursor: pointer;
+  &:focus{
+    border: 1px solid ;
+  }
 `;
 
-const IconImage = styled.img`
-  width: 30px;
+const AddButton = styled.button`
+  width: 300px;
   height: 30px;
-  margin-right: 5px;
+  background-color: #e4750e;
+  border: 1px solid #e45f0e;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: -45px;
+  cursor: pointer;
 `;
 
 export default AddMapModal;
