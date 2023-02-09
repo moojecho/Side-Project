@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import * as allTypes from './type';
 
-import {banner1,banner2} from '../../static/index';
+import {banner1,banner2,banner3,banner5} from '../../static/index';
 
 const Carousel = () => {
   const TOTAL_SLIDES : allTypes.TotalSlides = 2;
@@ -43,17 +43,22 @@ const Carousel = () => {
   console.log(currentSlide);
   return (
     <CarouselLayout>
-      <CarouselLeftButton onClick={() => PrevSlide()}>{"<"}</CarouselLeftButton>
+      
       <SlideLayout ref={slideRef}>
         <CarouselImage style={{ background: "orange" }} />
-        <CarouselImage src={banner2} />
+        <CarouselImage src={banner5} />
         <CarouselImage src={banner1} />
-        <CarouselImage style={{ background: "orange" }} />
-        {currentSlide > TOTAL_SLIDES ? <CarouselImage /> : null}
+        <CarouselImage src={banner3} />
+        {currentSlide > TOTAL_SLIDES ? <CarouselImage src={banner5} /> : null}
       </SlideLayout>
+      <CarouselMoveButtonLayout>
+        <CarouselLeftButton onClick={() => PrevSlide()}>{"<"}</CarouselLeftButton>
+        <CarouselLeftButton >{"||"}</CarouselLeftButton>
       <CarouselRightButton onClick={() => NextSlide()}>
         {">"}
       </CarouselRightButton>
+      </CarouselMoveButtonLayout>
+      
     </CarouselLayout>
   );
 };
@@ -84,22 +89,41 @@ const CarouselImage = styled.img`
 const CarouselLeftButton = styled.button`
   width: 30px;
   height: 30px;
-  left: 2vw;
-  border: 1px solid #dbdbdb;
+  margin: auto;
+  color: gray;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
   border-radius: 15px;
-  position: absolute;
-  z-index: 5;
   cursor: pointer;
 `;
 const CarouselRightButton = styled.button`
   width: 30px;
   height: 30px;
-  right: 2vw;
-  border: 1px solid #dbdbdb;
-  border-radius: 15px;
+  margin: auto;
+  color: gray;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+const CarouselMoveButtonLayout = styled.div`
+  width: 85px;
+  height: 40px;
+  right: 23%;
+  top: 39%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   z-index: 5;
-  cursor: pointer;
 `;
 
 export default Carousel;

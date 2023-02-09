@@ -41,6 +41,10 @@ const MapList = () => {
         <CatPosition id="map5"/>
         <PositionInformation />
       </MapCard>
+      <MapCard>
+        <CatPosition id="map6"/>
+        <PositionInformation />
+      </MapCard>
     </MapListLayout>
   );
 };
