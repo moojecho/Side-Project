@@ -40,7 +40,7 @@ const Carousel = () => {
     }
   }, [currentSlide]);
 
-  console.log(currentSlide);
+ 
   return (
     <CarouselLayout>
       

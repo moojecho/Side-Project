@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
+import * as allTypes from "./type";
 import { logo } from "../../static/index";
-
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
 const AddMapModal = () => {
   const dispatch = useDispatch();
+
+  const [mapInformation, setMapInformation] = useState<allTypes.MapInformation>(
+    { catImage: "", catNumber: 0, catLocation: "" }
+  );
 
   const cancleLoginModal = (toggle: boolean) => {
     dispatch(changeMapToggle(toggle));
@@ -18,19 +22,19 @@ const AddMapModal = () => {
       <ModalBackGround onClick={() => cancleLoginModal(true)} />
       <Modal>
         <CancleLayout>
-          <LogoImage src={logo}/>
+          <LogoImage src={logo} />
           <CancleButton onClick={() => cancleLoginModal(true)}>✖</CancleButton>
         </CancleLayout>
         <ImageLayout>이미지 첨부</ImageLayout>
         <InputLayout>
-        길냥이 마릿수
-        <CatInput/>
+          길냥이 마릿수
+          <CatInput value={mapInformation.catNumber}/>
         </InputLayout>
         <InputLayout>
-        주소
-        <CatInput/>
+          주소
+          <CatInput value={mapInformation.catLocation}/>
         </InputLayout>
-      <AddButton>추가</AddButton>
+        <AddButton>추가</AddButton>
       </Modal>
     </ModalLayout>
   );
@@ -80,13 +84,13 @@ const CancleLayout = styled.div`
   justify-content: right;
 `;
 
-const LogoImage =  styled.img`
+const LogoImage = styled.img`
   width: 80px;
   height: 65px;
   margin: auto;
   position: fixed;
   right: 43%;
-`
+`;
 
 const CancleButton = styled.button`
   font-size: 20px;
@@ -125,8 +129,8 @@ const CatInput = styled.input`
   border-radius: 10px;
   margin: auto 0px;
   cursor: pointer;
-  &:focus{
-    border: 1px solid ;
+  &:focus {
+    border: 1px solid;
   }
 `;
 
