@@ -68,7 +68,7 @@ const CarouselLayout = styled.div`
   height: 36vh;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 
 const SlideLayout = styled.div`

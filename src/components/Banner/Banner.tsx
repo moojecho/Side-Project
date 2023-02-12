@@ -14,6 +14,7 @@ const Banner = () => {
 const BannerLayout = styled.div`
   width: 100vw;
   height: 32vh;
+  margin-top: 8.9vh;
   background-color: black;
   display: flex;
   align-items: center;

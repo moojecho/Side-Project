@@ -67,6 +67,7 @@ const MapCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto;
 `;
 
 const CatPosition = styled.div`
