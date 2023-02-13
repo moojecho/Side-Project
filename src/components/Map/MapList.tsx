@@ -1,42 +1,21 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
 
+declare global {
+  interface Window {
+    kakao:any;
+  }
+}
 
 const MapList = () => {
 
-  const [exampleList ,setExampleList] = useState([
-    {mapNum:'map1',
-    mapLocation1:37.566826,
-    mapLocatin2:126.9786567
-    },
-    {mapNum:'map2',
-    mapLocation1:37.566826,
-    mapLocatin2:126.9786567
-    },
-    {mapNum:'map3',
-    mapLocation1:37.566826,
-    mapLocatin2:126.9786567
-    },
-    {mapNum:'map4',
-    mapLocation1:37.566826,
-    mapLocatin2:126.9786567
-    },
-    {mapNum:'map5',
-    mapLocation1:37.566826,
-    mapLocatin2:126.9786567
-    }
-  ])
-
   useEffect(()=>{
-    exampleList.map((list)=>{
-      const container = document.getElementById(`${list.mapNum}`);
+    const container = document.getElementById("map1");
     const option = {
-      center:new window.kakao.maps.LatLng(list.mapLocation1, list.mapLocatin2),
+      center:new window.kakao.maps.LatLng(37.566826, 126.9786567),
       level:5
     };
     const map = new window.kakao.maps.Map(container,option);
-    })
-    
   },[])
 
   return (
