@@ -4,3 +4,8 @@ export type MapInformation = {
     catLocation:string
   }
   
+  declare global {
+    interface Window {
+      kakao:any;
+    }
+  }
