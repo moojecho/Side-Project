@@ -1,83 +1,92 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 declare global {
   interface Window {
-    kakao:any;
+    kakao: any;
   }
 }
 
-const MapList = () => {
+type map = {
+  mapNum: string;
+  mapLocation1: number;
+  mapLocation2: number;
+  mapLocationName: string;
+};
 
+const MapList = () => {
   const [exampleList, setExampleList] = useState([
     {
-      mapNum:'map1',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567,
+      mapNum: "map1",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
+      mapLocationName: "",
     },
     {
-      mapNum:'map2',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567
+      mapNum: "map2",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
     },
     {
-      mapNum:'map3',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567
+      mapNum: "map3",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
     },
     {
-      mapNum:'map4',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567
+      mapNum: "map4",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
     },
     {
-      mapNum:'map5',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567
+      mapNum: "map5",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
     },
     {
-      mapNum:'map6',
-      mapLocation1:37.566826,
-      mapLocation2:126.9786567
+      mapNum: "map6",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
     },
-  ])
+  ]);
 
-  useEffect(()=>{
-    exampleList.map((list)=>{
-const container = document.getElementById(`${list.mapNum}`);
-    const option = {
-      center:new window.kakao.maps.LatLng(list.mapLocation1, list.mapLocation2),
-      level:5
-    };
-    const map = new window.kakao.maps.Map(container,option);
-    })
-    
-  },[])
+  useEffect(() => {
+    exampleList.map((list) => {
+      const container = document.getElementById(`${list.mapNum}`);
+      const option = {
+        center: new window.kakao.maps.LatLng(
+          list.mapLocation1,
+          list.mapLocation2
+        ),
+        level: 5,
+      };
+      const map = new window.kakao.maps.Map(container, option);
+    });
+  }, []);
 
   return (
     <MapListLayout>
       <MapCard>
-        <CatPosition id="map1"/>
+        <CatPosition id="map1" />
         <PositionInformation>{`서울특별시 중구 세종대로 110 서울특별시청`}</PositionInformation>
       </MapCard>
       <MapCard>
-        <CatPosition id="map2"/>
+        <CatPosition id="map2" />
         <PositionInformation />
       </MapCard>
       <MapCard>
-        <CatPosition id="map3"/>
+        <CatPosition id="map3" />
         <PositionInformation />
       </MapCard>
       <MapCard>
-        <CatPosition id="map4"/>
+        <CatPosition id="map4" />
         <PositionInformation />
       </MapCard>
       <MapCard>
-        <CatPosition id="map5"/>
+        <CatPosition id="map5" />
         <PositionInformation />
       </MapCard>
       <MapCard>
-        <CatPosition id="map6"/>
+        <CatPosition id="map6" />
         <PositionInformation />
       </MapCard>
     </MapListLayout>
