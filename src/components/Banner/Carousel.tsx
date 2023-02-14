@@ -68,7 +68,7 @@ const CarouselLayout = styled.div`
   height: 36vh;
   display: flex;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 10px;
 `;
 
 const SlideLayout = styled.div`
@@ -113,8 +113,8 @@ const CarouselRightButton = styled.button`
 const CarouselMoveButtonLayout = styled.div`
   width: 85px;
   height: 40px;
-  right: 23%;
-  top: 39%;
+  right: 25%;
+  top: 36%;
   background-color: white;
   border: 1px solid white;
   border-radius: 5px;
