@@ -66,6 +66,7 @@ const Modal = styled.div`
   top: 50%;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  box-shadow: 0 1px 10px black;
 `;
 
 const CancleLayout = styled.div`
