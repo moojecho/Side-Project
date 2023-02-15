@@ -8,6 +8,7 @@ declare global {
 }
 
 type map = {
+  key:number;
   mapNum: string;
   mapLocation1: number;
   mapLocation2: number;
@@ -17,36 +18,42 @@ type map = {
 const MapList = () => {
   const [exampleList, setExampleList] = useState([
     {
+      key:1,
       mapNum: "map1",
       mapLocation1: 37.566826,
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
     {
+      key:2,
       mapNum: "map2",
       mapLocation1: 37.557,
       mapLocation2: 126.8518,
       mapLocationName: "서울 강서구 화곡로61길 10 대한장어빌딩",
     },
     {
+      key:3,
       mapNum: "map3",
       mapLocation1: 37.566826,
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
     {
+      key:4,
       mapNum: "map4",
       mapLocation1: 37.566826,
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
     {
+      key:5,
       mapNum: "map5",
       mapLocation1: 37.566826,
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
     {
+      key:6,
       mapNum: "map6",
       mapLocation1: 37.566826,
       mapLocation2: 126.9786567,
@@ -104,7 +111,7 @@ const MapList = () => {
   return (
     <MapListLayout>
       {exampleList.map((list:map)=>
-        (<MapCard>
+        (<MapCard key={list.key}>
         <CatPosition id={list.mapNum}/>
         <PositionInformation>{list.mapLocationName}</PositionInformation>
       </MapCard>)
