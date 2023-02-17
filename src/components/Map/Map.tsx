@@ -17,7 +17,7 @@ const Map = () => {
 const MapLayout = styled.div`
   width: 99.9vw;
   height: 60vh;
-  margin-top: 0;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;

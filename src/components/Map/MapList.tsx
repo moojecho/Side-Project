@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 declare global {
@@ -7,49 +8,11 @@ declare global {
   }
 }
 
-type map = {
-  key:number;
-  mapNum: string;
-  mapLocation1: number;
-  mapLocation2: number;
-  mapLocationName: string;
-};
-
 const MapList = () => {
-  const [exampleList, setExampleList] = useState([
-    {
-      key:1,
-      mapNum: "map1",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    {
-      key:2,
-      mapNum: "map2",
-      mapLocation1: 37.557,
-      mapLocation2: 126.8518,
-      mapLocationName: "서울 강서구 화곡로61길 10 대한장어빌딩",
-    },
-    {
-      key:3,
-      mapNum: "map3",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    {
-      key:4,
-      mapNum: "map4",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    
-  ]);
-
+  const example = useSelector((state:any)=>state.catLoctionMap);
+  
   useEffect(() => {
-    exampleList.map((list) => {
+    example.map((list:any) => {
       const container = document.getElementById(`${list.mapNum}`);
       const option = {
         center: new window.kakao.maps.LatLng(
@@ -98,7 +61,7 @@ const MapList = () => {
   return (
     <MapListLayout>
       <SlideLayout>
-      {exampleList.map((list:map)=>
+      {example.map((list:any)=>
         (<MapCard key={list.key}>
         <CatPosition id={list.mapNum}/>
         <PositionInformation>{list.mapLocationName}</PositionInformation>
@@ -111,7 +74,7 @@ const MapList = () => {
 
 const MapListLayout = styled.div`
   width: 70vw;
-  min-width: 800px;
+  min-width: 840px;
   height: 32vh;
 `;
 
@@ -130,7 +93,7 @@ const MapCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 10px 0px auto 26px;
 `;
 
 const CatPosition = styled.div`

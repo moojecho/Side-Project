@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
-import {logo} from "../../static/index";
+import { useNavigate } from "react-router-dom";
+import { logo } from "../../static/index";
 
-import {LoginButton,SignButton} from "./index";
+import { LoginButton, SignButton } from "./index";
 
 const Header = () => {
   const navigator = useNavigate();
-  
+
   const logout = () => {
     window.localStorage.removeItem("refresh-token");
     window.localStorage.removeItem("authorization");
@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <HeaderLayout>
       <LogoLayout>
-        <Logo src={logo}/>
+        <Logo src={logo} />
       </LogoLayout>
       <LoginSignLayout>
         <LoginButton />
@@ -37,19 +37,22 @@ const HeaderLayout = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0.5px 1px gray;
-`
+`;
 
 const LogoLayout = styled.div`
-  width: 90px;
-  height: 80px;
+  width: 75px;
+  height: 100%;
   margin-left: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Logo = styled.img`
-width: 4.5vw;
-  min-width: 60px;
-  min-height:50px;
-  margin-top: 10px;
+  width: 4.5vw;
+  min-width: 65px;
+  height: 7.5vh;
+  min-height: 50px;
   cursor: pointer;
 `;
 const LoginSignLayout = styled.div`

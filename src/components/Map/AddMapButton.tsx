@@ -20,7 +20,6 @@ const AddMapButton = () => {
 };
 
 const AddMapButtonLayout = styled.div`
-  width: 40vw;
   height: 10vh;
   margin-top: 50px;
   display: flex;
@@ -29,8 +28,9 @@ const AddMapButtonLayout = styled.div`
 `
 const AddButton = styled.button`
   width: 30vw;
+  min-width: 400px;
   height: 6vh;
-  font-size: 1.5vw;
+  font-size: 150%;
   box-shadow: 0 2px 5px gray;
   border: 2px solid #e45f0e;
   border-radius: 20px;
