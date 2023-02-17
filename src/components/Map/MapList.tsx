@@ -45,34 +45,7 @@ const MapList = () => {
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
-    {
-      key:5,
-      mapNum: "map5",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    {
-      key:6,
-      mapNum: "map6",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    {
-      key:7,
-      mapNum: "map7",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
-    {
-      key:8,
-      mapNum: "map8",
-      mapLocation1: 37.566826,
-      mapLocation2: 126.9786567,
-      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
-    },
+    
   ]);
 
   useEffect(() => {
@@ -140,8 +113,6 @@ const MapListLayout = styled.div`
   width: 70vw;
   min-width: 800px;
   height: 32vh;
-  border: 1px solid red;
-  margin-top: 0;
 `;
 
 const SlideLayout = styled.div`

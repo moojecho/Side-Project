@@ -12,7 +12,6 @@ const MapHeader = () => {
 const MapHeaderLayout = styled.div`
   width: 78vw;
   height: 5vh;
-  border: 1px solid yellow;
 `;
 
 const MapTitle = styled.h2`
