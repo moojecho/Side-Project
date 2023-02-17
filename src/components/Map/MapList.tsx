@@ -141,7 +141,7 @@ const MapListLayout = styled.div`
   min-width: 800px;
   height: 32vh;
   border: 1px solid red;
-  margin-top: -40px;
+  margin-top: 0;
 `;
 
 const SlideLayout = styled.div`

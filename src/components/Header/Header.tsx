@@ -47,9 +47,9 @@ const LogoLayout = styled.div`
 
 const Logo = styled.img`
 width: 4.5vw;
-  min-width: 80px;
-  min-height: 70px;
-  margin-left: -20px;
+  min-width: 60px;
+  min-height:50px;
+  margin-top: 10px;
   cursor: pointer;
 `;
 const LoginSignLayout = styled.div`
