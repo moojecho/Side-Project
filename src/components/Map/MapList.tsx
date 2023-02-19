@@ -68,6 +68,11 @@ const MapList = () => {
       </MapCard>)
       )}
       </SlideLayout>
+        <CarouselLeftButton >{"<"}</CarouselLeftButton>
+      <CarouselRightButton >
+        {">"}
+      </CarouselRightButton>
+      
     </MapListLayout>
   );
 };
@@ -109,6 +114,43 @@ const PositionInformation = styled.div`
   display: flex;
   flex-direction: column;
   white-space: pre-line;
+`;
+
+const CarouselLeftButton = styled.button`
+  width: 20px;
+  height: 60px;
+  margin: auto;
+  left: 13%;
+  bottom: 19%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #626262;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  background-color: dbdbdb;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+`;
+const CarouselRightButton = styled.button`
+  width: 20px;
+  height: 60px;
+  margin: auto;
+  right: 13%;
+  bottom: 19%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #626262;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  background-color: dbdbdb;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
 `;
 
 export default MapList;
