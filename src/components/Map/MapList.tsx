@@ -9,10 +9,10 @@ declare global {
 }
 
 const MapList = () => {
-  const example = useSelector((state:any)=>state.catLoctionMap);
-  
+  const example = useSelector((state: any) => state.catLoctionMap);
+
   useEffect(() => {
-    example.map((list:any) => {
+    example.map((list: any) => {
       const container = document.getElementById(`${list.mapNum}`);
       const option = {
         center: new window.kakao.maps.LatLng(
@@ -23,26 +23,24 @@ const MapList = () => {
       };
       const map = new window.kakao.maps.Map(container, option);
 
-
       // 주소로 좌표 변환--------------------------------------------------------------------
-      
+
       // const geocoder = new window.kakao.maps.services.Geocoder();
       // // 주소로 좌표를 검색합니다..
       // geocoder.addressSearch(`${list.mapLocationName}`, function (result:any, status:any) {
-  
-      //   // 정상적으로 검색이 완료됐으면 
+
+      //   // 정상적으로 검색이 완료됐으면
       //   if (status === window.kakao.maps.services.Status.OK) {
-    
+
       //     var coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
-    
+
       //     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
       //     map.setCenter(coords);
       //   }
       // })
 
-
       // 마커-------------------------------------------------------------
-      
+
       let markerPosition = new window.kakao.maps.LatLng(
         list.mapLocation1,
         list.mapLocation2
@@ -60,27 +58,27 @@ const MapList = () => {
 
   return (
     <MapListLayout>
+      <CarouselLeftButton>{"<"}</CarouselLeftButton>
       <SlideLayout>
-      {example.map((list:any)=>
-        (<MapCard key={list.key}>
-        <CatPosition id={list.mapNum}/>
-        <PositionInformation>{list.mapLocationName}</PositionInformation>
-      </MapCard>)
-      )}
+        {example.map((list: any) => (
+          <MapCard key={list.key}>
+            <CatPosition id={list.mapNum} />
+            <PositionInformation>{list.mapLocationName}</PositionInformation>
+          </MapCard>
+        ))}
       </SlideLayout>
-        <CarouselLeftButton >{"<"}</CarouselLeftButton>
-      <CarouselRightButton >
-        {">"}
-      </CarouselRightButton>
-      
+      <CarouselRightButton>{">"}</CarouselRightButton>
     </MapListLayout>
   );
 };
 
 const MapListLayout = styled.div`
-  width: 70vw;
-  min-width: 840px;
+  width: 960px;
   height: 32vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
 `;
 
 const SlideLayout = styled.div`
@@ -98,7 +96,7 @@ const MapCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 0px auto 26px;
+  margin: 10px 0px auto 45px;
 `;
 
 const CatPosition = styled.div`
@@ -119,9 +117,7 @@ const PositionInformation = styled.div`
 const CarouselLeftButton = styled.button`
   width: 20px;
   height: 60px;
-  margin: auto;
-  left: 13%;
-  bottom: 19%;
+  margin: auto -15px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,16 +126,12 @@ const CarouselLeftButton = styled.button`
   font-weight: bold;
   border: none;
   background-color: dbdbdb;
-  position: absolute;
-  z-index: 5;
   cursor: pointer;
 `;
 const CarouselRightButton = styled.button`
   width: 20px;
   height: 60px;
   margin: auto;
-  right: 13%;
-  bottom: 19%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,8 +140,6 @@ const CarouselRightButton = styled.button`
   font-weight: bold;
   border: none;
   background-color: dbdbdb;
-  position: absolute;
-  z-index: 5;
   cursor: pointer;
 `;
 

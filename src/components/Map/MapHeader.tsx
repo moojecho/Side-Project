@@ -10,12 +10,12 @@ const MapHeader = () => {
 };
 
 const MapHeaderLayout = styled.div`
-  width: 78vw;
-  height: 5vh;
+  width: 900px;
+  height: 7vh;
 `;
 
 const MapTitle = styled.h2`
-  margin: 0px 5px;
+  margin: 15px 0 0 20px;
 `;
 
 export default MapHeader;
