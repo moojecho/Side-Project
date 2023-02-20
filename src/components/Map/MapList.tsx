@@ -4,23 +4,13 @@ import styled from "styled-components";
 
 import * as allTypes from './type';
 
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
-
-type currentSlide = {
-  currentSlide:number
-}
-
 const MapList = () => {
   const example = useSelector((state: any) => state.catLoctionMap);
 
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const slideRef = useRef<HTMLInputElement>(null);
 
+  //다음 슬라이드 버튼-------------------------------------------------------
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES-4) {
       setTimeout(() => setCurrentSlide(0), 0);
@@ -29,6 +19,7 @@ const MapList = () => {
     }
   };
 
+  //이전 슬라이드 버튼-------------------------------------------------------
   const PrevSlide = () => {
     if (currentSlide === 0) {
       setTimeout(() => setCurrentSlide(TOTAL_SLIDES-4), 0);
@@ -52,7 +43,7 @@ const MapList = () => {
       };
       const map = new window.kakao.maps.Map(container, option);
 
-      // 주소로 좌표 변환--------------------------------------------------------------------
+      // 주소로 좌표 변환----------------------------------------------------
 
       // const geocoder = new window.kakao.maps.services.Geocoder();
       // // 주소로 좌표를 검색합니다..
@@ -68,7 +59,7 @@ const MapList = () => {
       //   }
       // })
 
-      // 마커-------------------------------------------------------------
+      // 마커--------------------------------------------------------------
 
       let markerPosition = new window.kakao.maps.LatLng(
         list.mapLocation1,
@@ -88,13 +79,15 @@ const MapList = () => {
   return (
     <MapListLayout>
       <CarouselLeftButton  onClick={PrevSlide}>{"<"}</CarouselLeftButton>
-      <SlideLayout currentSlide={currentSlide} ref={slideRef}>
+      <SlideLayout>
+        <Slide currentSlide={currentSlide}>
         {example.map((list: any) => (
           <MapCard key={list.key}>
             <CatPosition id={list.mapNum} />
             <PositionInformation>{list.mapLocationName}</PositionInformation>
           </MapCard>
         ))}
+        </Slide>
       </SlideLayout>
       <CarouselRightButton onClick={NextSlide}>{">"}</CarouselRightButton>
     </MapListLayout>
@@ -111,12 +104,15 @@ const MapListLayout = styled.div`
   overflow: hidden;
 `;
 
-const SlideLayout = styled.div<currentSlide>`
-  display: flex;
+const SlideLayout = styled.div`
   overflow: hidden;
+`;
+
+const Slide = styled.div<allTypes.currentSlide>`
+  display: flex;
   transition: all 0.7s ease-in-out;
   transform:${props=>`translateX(-${props.currentSlide*230}px)`};
-`;
+`
 
 const MapCard = styled.div`
   min-width: 180px;
