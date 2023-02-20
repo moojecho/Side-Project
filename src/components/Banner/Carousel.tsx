@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import * as allTypes from './type';
+import * as allTypes from "./type";
 
-import {banner1,banner2,banner3,banner5} from '../../static/index';
+import { banner1, banner2, banner3, banner5 } from "../../static/index";
 
 const Carousel = () => {
-  const TOTAL_SLIDES : allTypes.TotalSlides = 2;
+  const TOTAL_SLIDES: allTypes.TotalSlides = 2;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const slideRef = useRef<HTMLInputElement>(null);
 
@@ -28,23 +28,19 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    if(slideRef.current)
-    if (currentSlide === -1 || currentSlide === TOTAL_SLIDES+1) {
-      slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
-    } else {
-      slideRef.current.style.transition = "all 0.5s ease-in-out";
-      slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
-      if (currentSlide === -1) {
-        slideRef.current.style.transform = `translateX(100vw)`;
+    if (slideRef.current)
+      if (currentSlide === -1 || currentSlide === TOTAL_SLIDES + 1) {
+        slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
+      } else {
+        slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
+        if (currentSlide === -1) {
+          slideRef.current.style.transform = `translateX(100vw)`;
+        }
       }
-    }
-    
   }, [currentSlide]);
 
- 
   return (
     <CarouselLayout>
-      
       <SlideLayout ref={slideRef}>
         <CarouselImage style={{ background: "orange" }} />
         <CarouselImage src={banner5} />
@@ -53,13 +49,14 @@ const Carousel = () => {
         {currentSlide > TOTAL_SLIDES ? <CarouselImage src={banner5} /> : null}
       </SlideLayout>
       <CarouselMoveButtonLayout>
-        <CarouselLeftButton onClick={() => PrevSlide()}>{"<"}</CarouselLeftButton>
-        <CarouselLeftButton >{"||"}</CarouselLeftButton>
-      <CarouselRightButton onClick={() => NextSlide()}>
-        {">"}
-      </CarouselRightButton>
+        <CarouselLeftButton onClick={() => PrevSlide()}>
+          {"<"}
+        </CarouselLeftButton>
+        <CarouselLeftButton>{"||"}</CarouselLeftButton>
+        <CarouselRightButton onClick={() => NextSlide()}>
+          {">"}
+        </CarouselRightButton>
       </CarouselMoveButtonLayout>
-      
     </CarouselLayout>
   );
 };
@@ -75,6 +72,7 @@ const CarouselLayout = styled.div`
 
 const SlideLayout = styled.div`
   display: flex;
+  transition: all 0.5s ease-in-out;
 `;
 
 const CarouselImage = styled.img`

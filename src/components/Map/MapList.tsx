@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+
+import * as allTypes from './type';
 
 declare global {
   interface Window {
@@ -8,8 +10,35 @@ declare global {
   }
 }
 
+type currentSlide = {
+  currentSlide:number
+}
+
 const MapList = () => {
   const example = useSelector((state: any) => state.catLoctionMap);
+
+  const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const slideRef = useRef<HTMLInputElement>(null);
+
+  const NextSlide = () => {
+    if (currentSlide >= TOTAL_SLIDES-4) {
+      setTimeout(() => setCurrentSlide(0), 0);
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const PrevSlide = () => {
+    if (currentSlide === 0) {
+      setTimeout(() => setCurrentSlide(TOTAL_SLIDES-4), 0);
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+
+//카카오 맵 api-------------------------------------------------------------
 
   useEffect(() => {
     example.map((list: any) => {
@@ -58,8 +87,8 @@ const MapList = () => {
 
   return (
     <MapListLayout>
-      <CarouselLeftButton>{"<"}</CarouselLeftButton>
-      <SlideLayout>
+      <CarouselLeftButton  onClick={PrevSlide}>{"<"}</CarouselLeftButton>
+      <SlideLayout currentSlide={currentSlide} ref={slideRef}>
         {example.map((list: any) => (
           <MapCard key={list.key}>
             <CatPosition id={list.mapNum} />
@@ -67,7 +96,7 @@ const MapList = () => {
           </MapCard>
         ))}
       </SlideLayout>
-      <CarouselRightButton>{">"}</CarouselRightButton>
+      <CarouselRightButton onClick={NextSlide}>{">"}</CarouselRightButton>
     </MapListLayout>
   );
 };
@@ -79,16 +108,18 @@ const MapListLayout = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-direction: row;
+  overflow: hidden;
 `;
 
-const SlideLayout = styled.div`
+const SlideLayout = styled.div<currentSlide>`
   display: flex;
   overflow: hidden;
+  transition: all 0.7s ease-in-out;
+  transform:${props=>`translateX(-${props.currentSlide*230}px)`};
 `;
 
 const MapCard = styled.div`
   min-width: 180px;
-  width: 10vw;
   height: 30vh;
   background-color: #dbdbdb;
   border-radius: 10px;
@@ -124,8 +155,10 @@ const CarouselLeftButton = styled.button`
   color: #626262;
   font-size: 25px;
   font-weight: bold;
-  border: none;
+  border: 1px solid white;
+  border-radius: 5px;
   background-color: dbdbdb;
+  z-index: 5;
   cursor: pointer;
 `;
 const CarouselRightButton = styled.button`
@@ -138,7 +171,8 @@ const CarouselRightButton = styled.button`
   color: #626262;
   font-size: 25px;
   font-weight: bold;
-  border: none;
+  border: 1px solid white;
+  border-radius: 5px;
   background-color: dbdbdb;
   cursor: pointer;
 `;

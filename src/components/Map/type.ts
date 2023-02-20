@@ -4,3 +4,4 @@ export type MapInformation = {
     catLocation:string
   }
   
+export type TotalSlides = number
