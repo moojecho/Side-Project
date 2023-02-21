@@ -7,8 +7,12 @@ import { logo } from "../../static/index";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
 const AddMapModal = () => {
+  const korean =  /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+  const none = /[\s+]/;
+  const regNum = /[0-9]/;
   const dispatch = useDispatch();
 
+  const [example, setExample] = useState<number>(0);
   const [mapInformation, setMapInformation] = useState<allTypes.MapInformation>(
     { catImage: "", catNumber: 0, catLocation: "" }
   );
@@ -28,11 +32,28 @@ const AddMapModal = () => {
         <ImageLayout>이미지 첨부</ImageLayout>
         <InputLayout>
           길냥이 마릿수
-          <CatInput value={mapInformation.catNumber}/>
+          <CatInput type='number' value={mapInformation.catNumber} onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              regNum.test(e.target.value) ||e.target.value.search(none) 
+                ? setMapInformation({
+                    ...mapInformation,
+                    catNumber:Number(e.target.value),
+                  })
+                : window.alert("숫자만 사용해주세요!")
+            }/>
         </InputLayout>
         <InputLayout>
           주소
-          <CatInput value={mapInformation.catLocation}/>
+          <CatInput
+            value={mapInformation.catLocation}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              korean.test(e.target.value) || none.test(e.target.value)
+                ? setMapInformation({
+                    ...mapInformation,
+                    catLocation: e.target.value,
+                  })
+                : window.alert("한글만 사용해주세요!")
+            }
+          />
         </InputLayout>
         <AddButton>추가</AddButton>
       </Modal>

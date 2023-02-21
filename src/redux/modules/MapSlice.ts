@@ -50,6 +50,13 @@ const initialState: map[] = [
       mapLocation2: 126.9786567,
       mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
     },
+    {
+      key:7,
+      mapNum: "map7",
+      mapLocation1: 37.566826,
+      mapLocation2: 126.9786567,
+      mapLocationName: "서울특별시 중구 세종대로 110 서울특별시청",
+    },
   ];
 
 export const MapSlice = createSlice({
