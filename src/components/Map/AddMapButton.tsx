@@ -20,7 +20,7 @@ const AddMapButton = () => {
 };
 
 const AddMapButtonLayout = styled.div`
-  height: 10vh;
+  height: 11vh;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
