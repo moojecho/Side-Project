@@ -102,6 +102,13 @@ const MapListLayout = styled.div`
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
+
+  @media only screen and (max-width: 768px){
+    width: 495px;
+  }
+  @media only screen and (max-width: 480px){
+    width: 380px;
+  }
 `;
 
 const SlideLayout = styled.div`
@@ -112,10 +119,13 @@ const Slide = styled.div<allTypes.currentSlide>`
   display: flex;
   transition: all 0.7s ease-in-out;
   transform:${props=>`translateX(-${props.currentSlide*230}px)`};
+  @media only screen and (max-width: 480px){
+    transform:${props=>`translateX(-${props.currentSlide*167}px)`};
+  }
 `
 
 const MapCard = styled.div`
-  min-width: 180px;
+  width: 180px;
   height: 30vh;
   background-color: #dbdbdb;
   border-radius: 10px;
@@ -124,12 +134,23 @@ const MapCard = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px 0px auto 45px;
+  @media only screen and (min-width: 1200px){
+    min-width: 180px;
+  }
+  @media only screen and (max-width: 480px){
+    width: 140px;
+    height: 230px;
+    margin: 17px 0 0 31px;
+  }
 `;
 
 const CatPosition = styled.div`
   width: 160px;
   height: 22vh;
   margin-bottom: 10px;
+  @media only screen and (max-width: 480px){
+    width: 120px;
+  }
 `;
 
 const PositionInformation = styled.div`
@@ -139,6 +160,13 @@ const PositionInformation = styled.div`
   display: flex;
   flex-direction: column;
   white-space: pre-line;
+  @media only screen and (max-width: 480px){
+    width: 130px;
+    height: 20px;
+    font-weight: bold;
+    font-size: 8px;
+    margin: -5px 0 0 5px;
+  }
 `;
 
 const CarouselLeftButton = styled.button`

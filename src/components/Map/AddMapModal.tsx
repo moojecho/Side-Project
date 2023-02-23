@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from '../../redux/hooks'
 
 import * as allTypes from "./type";
 import { logo } from "../../static/index";
+import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
 const AddMapModal = () => {
-  const korean =  /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+  const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
   const none = /[\s+]/;
   const regNum = /[0-9]/;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [example, setExample] = useState<number>(0);
   const [mapInformation, setMapInformation] = useState<allTypes.MapInformation>(
-    { catImage: "", catNumber: 0, catLocation: "" }
+    { catImage: "", catNum: 0, catLocation: "" }
   );
 
   const cancleLoginModal = (toggle: boolean) => {
     dispatch(changeMapToggle(toggle));
+  };
+
+  const sendMapInfo = () =>{
+    dispatch(__sendMapInfo(mapInformation));
+    dispatch(changeMapToggle(true));
   };
 
   return (
@@ -26,20 +32,23 @@ const AddMapModal = () => {
       <ModalBackGround onClick={() => cancleLoginModal(true)} />
       <Modal>
         <CancleLayout>
-          <LogoImage src={logo} />
           <CancleButton onClick={() => cancleLoginModal(true)}>✖</CancleButton>
         </CancleLayout>
         <ImageLayout>이미지 첨부</ImageLayout>
         <InputLayout>
           길냥이 마릿수
-          <CatInput type='number' value={mapInformation.catNumber} onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              regNum.test(e.target.value) ||e.target.value.search(none) 
+          <CatInput
+            type="number"
+            value={mapInformation.catNum}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              regNum.test(e.target.value) || e.target.value.search(none)
                 ? setMapInformation({
                     ...mapInformation,
-                    catNumber:Number(e.target.value),
+                    catNum: Number(e.target.value),
                   })
                 : window.alert("숫자만 사용해주세요!")
-            }/>
+            }
+          />
         </InputLayout>
         <InputLayout>
           주소
@@ -55,7 +64,7 @@ const AddMapModal = () => {
             }
           />
         </InputLayout>
-        <AddButton>추가</AddButton>
+        <AddButton onClick={sendMapInfo}>추가</AddButton>
       </Modal>
     </ModalLayout>
   );
@@ -85,8 +94,6 @@ const Modal = styled.div`
   height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   border-radius: 20px;
   position: fixed;
@@ -95,6 +102,11 @@ const Modal = styled.div`
   z-index: 9999;
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 10px black;
+
+  @media only screen and (max-width: 480px) {
+    width: 300px;
+    height: 400px;
+  }
 `;
 
 const CancleLayout = styled.div`
@@ -104,14 +116,11 @@ const CancleLayout = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: right;
-`;
-
-const LogoImage = styled.img`
-  width: 80px;
-  height: 65px;
-  margin: auto;
-  position: fixed;
-  right: 43%;
+  @media only screen and (max-width: 480px) {
+    width: 265px;
+    height: 30px;
+    margin-top: 5px;
+  }
 `;
 
 const CancleButton = styled.button`
@@ -134,11 +143,18 @@ const ImageLayout = styled.div`
 
 const InputLayout = styled.div`
   width: 250px;
-  height: 80px;
+  height: 60px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: -40px;
+  margin-top: -45px;
+  @media only screen and (max-width: 480px) {
+    width: 230px;
+    height: 60px;
+    margin-top: -15px;
+    font-size: 15px;
+  }
 `;
 
 const CatInput = styled.input`
@@ -149,7 +165,11 @@ const CatInput = styled.input`
   align-items: center;
   border: 0.5px solid gray;
   border-radius: 10px;
-  margin: auto 0px;
+  margin: 5px 0px;
+  @media only screen and (max-width: 480px) {
+    width: 220px;
+    height: 25px;
+  }
   cursor: pointer;
   &:focus {
     border: 1px solid;
@@ -162,8 +182,14 @@ const AddButton = styled.button`
   background-color: #e4750e;
   border: 1px solid #e45f0e;
   border-radius: 10px;
+  font-weight: bold;
   margin: auto;
   margin-top: -45px;
+  @media only screen and (max-width: 480px) {
+    width: 230px;
+    height: 25px;
+    margin-top: -10px;
+  }
   cursor: pointer;
 `;
 

@@ -12,10 +12,21 @@ const MapHeader = () => {
 const MapHeaderLayout = styled.div`
   width: 900px;
   height: 7vh;
+  @media only screen and (max-width: 480px) {
+    width: 350px;
+  }
 `;
 
-const MapTitle = styled.h2`
+const MapTitle = styled.p`
+  font-size: 25px;
+  font-weight: bold;
   margin: 15px 0 0 20px;
+
+  @media only screen and (max-width: 480px) {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 30px 0 0 20px;
+  }
 `;
 
 export default MapHeader;

@@ -67,6 +67,10 @@ const Modal = styled.div`
   z-index: 9999;
   transform: translate(-50%, -50%);
   box-shadow: 0 1px 10px black;
+  @media only screen and (max-width: 480px) {
+    width: 260px;
+    height: 350px;
+  }
 `;
 
 const CancleLayout = styled.div`
@@ -96,6 +100,10 @@ const KakaoButton = styled.button`
   border-radius: 10px;
   margin: auto;
   font-weight: bold;
+  @media only screen and (max-width: 480px) {
+    width: 170px;
+    height: 45px;
+  }
   cursor: pointer;
 `;
 
@@ -112,6 +120,11 @@ const GithubButton = styled.button`
   margin-top: -50px;
   color: white;
   font-weight: bold;
+  @media only screen and (max-width: 480px) {
+    width: 170px;
+    height: 45px;
+    margin-top: -80px;
+  }
   cursor: pointer;
 `;
 

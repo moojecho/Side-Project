@@ -50,13 +50,20 @@ const LogoLayout = styled.div`
 
 const Logo = styled.img`
   width: 4.5vw;
-  min-width: 65px;
   height: 7.5vh;
-  min-height: 50px;
+  @media only screen and (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+  }
   cursor: pointer;
 `;
 const LoginSignLayout = styled.div`
-  width: 200px;
+  width: 250px;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 480px) {
+    width: 150px;
+  }
 `;
 export default Header;

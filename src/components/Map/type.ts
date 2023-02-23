@@ -6,7 +6,7 @@ declare global {
 
 export type MapInformation = {
     catImage:string,
-    catNumber:number,
+    catNum:number,
     catLocation:string
   }
   

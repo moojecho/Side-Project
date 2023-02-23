@@ -25,10 +25,13 @@ const AddMapButtonLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 480px) {
+    height: 70px;
+  }
 `
 const AddButton = styled.button`
   width: 30vw;
-  min-width: 400px;
+  /* min-width: 400px; */
   height: 6vh;
   font-size: 150%;
   box-shadow: 0 2px 5px gray;
@@ -36,9 +39,10 @@ const AddButton = styled.button`
   border-radius: 20px;
   background-color: #e4750e;
   margin: auto;
-  cursor: pointer;
-  &:hover{
-    opacity: 0.8;
+
+  @media only screen and (max-width: 480px) {
+    width: 250px;
+    font-size: 18px;
   }
 `;
 

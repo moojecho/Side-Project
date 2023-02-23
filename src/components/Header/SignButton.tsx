@@ -3,18 +3,12 @@ import styled from "styled-components";
 
 const SignButton = () => {
   return (
-    <SignButtonLayout>
-      <SignBtn>회원가입</SignBtn>
+    <SignButtonLayout>회원가입
     </SignButtonLayout>
   );
 };
 
 const SignButtonLayout = styled.div`
-  width: 72px;
-  height: 37px;
-`;
-
-const SignBtn = styled.button`
   width: 70px;
   height: 35px;
   color: white;
@@ -24,6 +18,13 @@ const SignBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 480px) {
+    width: 45px;
+    height: 30px;
+    font-size: 9px;
+    border-radius: 7px;
+    margin-left: -7px;
+  }
   cursor: pointer;
 `;
 
