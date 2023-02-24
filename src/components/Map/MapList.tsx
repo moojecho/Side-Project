@@ -107,7 +107,7 @@ const MapListLayout = styled.div`
     width: 495px;
   }
   @media only screen and (max-width: 480px){
-    width: 380px;
+    width: 95%;
   }
 `;
 
@@ -138,8 +138,8 @@ const MapCard = styled.div`
     min-width: 180px;
   }
   @media only screen and (max-width: 480px){
-    width: 140px;
-    height: 230px;
+    width: 36vw;
+    height: 27vh;
     margin: 17px 0 0 31px;
   }
 `;
@@ -150,6 +150,7 @@ const CatPosition = styled.div`
   margin-bottom: 10px;
   @media only screen and (max-width: 480px){
     width: 120px;
+    height: 20vh;
   }
 `;
 

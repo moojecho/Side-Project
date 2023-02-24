@@ -26,7 +26,7 @@ const AddMapButtonLayout = styled.div`
   flex-direction: column;
   align-items: center;
   @media only screen and (max-width: 480px) {
-    height: 70px;
+    height: 50px;
   }
 `
 const AddButton = styled.button`
