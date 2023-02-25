@@ -102,7 +102,6 @@ const MapListLayout = styled.div`
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-
   @media only screen and (max-width: 768px){
     width: 495px;
   }
