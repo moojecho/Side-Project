@@ -106,12 +106,14 @@ const MapListLayout = styled.div`
     width: 495px;
   }
   @media only screen and (max-width: 480px){
-    width: 95%;
+    width: 360px;
+    height: 250px;
   }
 `;
 
 const SlideLayout = styled.div`
   overflow: hidden;
+  margin: auto;
 `;
 
 const Slide = styled.div<allTypes.currentSlide>`
@@ -137,9 +139,9 @@ const MapCard = styled.div`
     min-width: 180px;
   }
   @media only screen and (max-width: 480px){
-    width: 36vw;
-    height: 27vh;
-    margin: 17px 0 0 31px;
+    width: 130px;
+    height:200px;
+    margin: 0 0 0 31px;
   }
 `;
 
@@ -149,7 +151,8 @@ const CatPosition = styled.div`
   margin-bottom: 10px;
   @media only screen and (max-width: 480px){
     width: 120px;
-    height: 20vh;
+    height: 150px;
+    margin-top: -8px;
   }
 `;
 
@@ -184,6 +187,9 @@ const CarouselLeftButton = styled.button`
   background-color: dbdbdb;
   z-index: 5;
   cursor: pointer;
+  @media only screen and (max-width: 480px){
+
+  }
 `;
 const CarouselRightButton = styled.button`
   width: 20px;
