@@ -121,7 +121,7 @@ const Slide = styled.div<allTypes.currentSlide>`
   transition: all 0.7s ease-in-out;
   transform:${props=>`translateX(-${props.currentSlide*230}px)`};
   @media only screen and (max-width: 480px){
-    transform:${props=>`translateX(-${props.currentSlide*167}px)`};
+    transform:${props=>`translateX(-${props.currentSlide*161}px)`};
   }
 `
 
