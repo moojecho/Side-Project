@@ -1,18 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
-import * as allTypes from './type';
+import { __receiveMapInfo } from "../../redux/modules/MapSlice";
+import * as allTypes from "./type";
 
 const MapList = () => {
-  const example = useSelector((state: any) => state.catLoctionMap);
+  const dispatch = useAppDispatch();
+  const example: allTypes.mapInfo[] = useAppSelector((state:any) => state.catLoctionMap.mapList);
+  console.log(example)
 
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   //다음 슬라이드 버튼-------------------------------------------------------
   const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES-4) {
+    if (currentSlide >= TOTAL_SLIDES - 4) {
       setTimeout(() => setCurrentSlide(0), 0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -22,71 +25,77 @@ const MapList = () => {
   //이전 슬라이드 버튼-------------------------------------------------------
   const PrevSlide = () => {
     if (currentSlide === 0) {
-      setTimeout(() => setCurrentSlide(TOTAL_SLIDES-4), 0);
+      setTimeout(() => setCurrentSlide(TOTAL_SLIDES - 4), 0);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
   };
 
+  //카카오 맵 api-------------------------------------------------------------
 
-//카카오 맵 api-------------------------------------------------------------
+  // useEffect(() => {
+  //   example.map((list) => {return({
+  //     const container = document.getElementById(`${list.mapNum}`);
+  //   })
+      
+  //     const option = {
+  //       center: new window.kakao.maps.LatLng(
+  //         list.mapLocation1,
+  //         list.mapLocation2
+  //       ),
+  //       level: 5,
+  //     };
+  //     const map = new window.kakao.maps.Map(container, option);
 
-  useEffect(() => {
-    example.map((list: any) => {
-      const container = document.getElementById(`${list.mapNum}`);
-      const option = {
-        center: new window.kakao.maps.LatLng(
-          list.mapLocation1,
-          list.mapLocation2
-        ),
-        level: 5,
-      };
-      const map = new window.kakao.maps.Map(container, option);
+  //     // 주소로 좌표 변환----------------------------------------------------
 
-      // 주소로 좌표 변환----------------------------------------------------
+  //     // const geocoder = new window.kakao.maps.services.Geocoder();
+  //     // // 주소로 좌표를 검색합니다..
+  //     // geocoder.addressSearch(`${list.mapLocationName}`, function (result:any, status:any) {
 
-      // const geocoder = new window.kakao.maps.services.Geocoder();
-      // // 주소로 좌표를 검색합니다..
-      // geocoder.addressSearch(`${list.mapLocationName}`, function (result:any, status:any) {
+  //     //   // 정상적으로 검색이 완료됐으면
+  //     //   if (status === window.kakao.maps.services.Status.OK) {
 
-      //   // 정상적으로 검색이 완료됐으면
-      //   if (status === window.kakao.maps.services.Status.OK) {
+  //     //     var coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
 
-      //     var coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
+  //     //     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+  //     //     map.setCenter(coords);
+  //     //   }
+  //     // })
 
-      //     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-      //     map.setCenter(coords);
-      //   }
-      // })
+  //     // 마커--------------------------------------------------------------
 
-      // 마커--------------------------------------------------------------
+  //     let markerPosition = new window.kakao.maps.LatLng(
+  //       list.mapLocation1,
+  //       list.mapLocation2
+  //     );
 
-      let markerPosition = new window.kakao.maps.LatLng(
-        list.mapLocation1,
-        list.mapLocation2
-      );
+  //     // 마커를 생성
+  //     let marker = new window.kakao.maps.Marker({
+  //       position: markerPosition,
+  //     });
 
-      // 마커를 생성
-      let marker = new window.kakao.maps.Marker({
-        position: markerPosition,
-      });
+  //     // 마커를 지도 위에 표시
+  //     marker.setMap(map);
+  //   });
+  // }, []);
 
-      // 마커를 지도 위에 표시
-      marker.setMap(map);
-    });
-  }, []);
+  // useEffect(() => {
+  //   dispatch(__receiveMapInfo());
+  // }, []);
 
   return (
     <MapListLayout>
-      <CarouselLeftButton  onClick={PrevSlide}>{"<"}</CarouselLeftButton>
+      <CarouselLeftButton onClick={PrevSlide}>{"<"}</CarouselLeftButton>
       <SlideLayout>
         <Slide currentSlide={currentSlide}>
-        {example.map((list: any) => (
-          <MapCard key={list.key}>
-            <CatPosition id={list.mapNum} />
-            <PositionInformation>{list.mapLocationName}</PositionInformation>
-          </MapCard>
-        ))}
+          {example.map((list) => { return(<MapCard key={list.mapList._id}>
+              <CatPosition id={list.mapNum} />
+              <PositionInformation>{list.mapLocationName}</PositionInformation>
+            </MapCard>
+            )
+            
+}))}
         </Slide>
       </SlideLayout>
       <CarouselRightButton onClick={NextSlide}>{">"}</CarouselRightButton>
@@ -102,10 +111,10 @@ const MapListLayout = styled.div`
   justify-content: center;
   flex-direction: row;
   overflow: hidden;
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 495px;
   }
-  @media only screen and (max-width: 480px){
+  @media only screen and (max-width: 480px) {
     width: 360px;
     height: 250px;
   }
@@ -119,11 +128,11 @@ const SlideLayout = styled.div`
 const Slide = styled.div<allTypes.currentSlide>`
   display: flex;
   transition: all 0.7s ease-in-out;
-  transform:${props=>`translateX(-${props.currentSlide*230}px)`};
-  @media only screen and (max-width: 480px){
-    transform:${props=>`translateX(-${props.currentSlide*161}px)`};
+  transform: ${(props) => `translateX(-${props.currentSlide * 230}px)`};
+  @media only screen and (max-width: 480px) {
+    transform: ${(props) => `translateX(-${props.currentSlide * 161}px)`};
   }
-`
+`;
 
 const MapCard = styled.div`
   width: 180px;
@@ -135,12 +144,12 @@ const MapCard = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px 0px auto 45px;
-  @media only screen and (min-width: 1200px){
+  @media only screen and (min-width: 1200px) {
     min-width: 180px;
   }
-  @media only screen and (max-width: 480px){
+  @media only screen and (max-width: 480px) {
     width: 130px;
-    height:200px;
+    height: 200px;
     margin: 0 0 0 31px;
   }
 `;
@@ -149,7 +158,7 @@ const CatPosition = styled.div`
   width: 160px;
   height: 22vh;
   margin-bottom: 10px;
-  @media only screen and (max-width: 480px){
+  @media only screen and (max-width: 480px) {
     width: 120px;
     height: 150px;
     margin-top: -8px;
@@ -163,7 +172,7 @@ const PositionInformation = styled.div`
   display: flex;
   flex-direction: column;
   white-space: pre-line;
-  @media only screen and (max-width: 480px){
+  @media only screen and (max-width: 480px) {
     width: 130px;
     height: 20px;
     font-weight: bold;
@@ -187,8 +196,7 @@ const CarouselLeftButton = styled.button`
   background-color: dbdbdb;
   z-index: 5;
   cursor: pointer;
-  @media only screen and (max-width: 480px){
-
+  @media only screen and (max-width: 480px) {
   }
 `;
 const CarouselRightButton = styled.button`

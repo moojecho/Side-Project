@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useAppSelector, useAppDispatch } from '../../redux/hooks'
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 
 import * as allTypes from "./type";
 import { logo } from "../../static/index";
@@ -22,7 +22,7 @@ const AddMapModal = () => {
     dispatch(changeMapToggle(toggle));
   };
 
-  const sendMapInfo = () =>{
+  const sendMapInfo = () => {
     dispatch(__sendMapInfo(mapInformation));
     dispatch(changeMapToggle(true));
   };
@@ -55,12 +55,10 @@ const AddMapModal = () => {
           <CatInput
             value={mapInformation.catLocation}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              korean.test(e.target.value) || none.test(e.target.value)
-                ? setMapInformation({
-                    ...mapInformation,
-                    catLocation: e.target.value,
-                  })
-                : window.alert("한글만 사용해주세요!")
+              setMapInformation({
+                ...mapInformation,
+                catLocation: e.target.value,
+              })
             }
           />
         </InputLayout>
@@ -69,6 +67,13 @@ const AddMapModal = () => {
     </ModalLayout>
   );
 };
+
+// korean.test(e.target.value) || none.test(e.target.value)
+//                 ? setMapInformation({
+//                     ...mapInformation,
+//                     catLocation: e.target.value,
+//                   })
+//                 : window.alert("한글만 사용해주세요!")
 
 const ModalLayout = styled.div`
   width: 100vw;

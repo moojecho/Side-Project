@@ -5,6 +5,7 @@ declare global {
 }
 
 export type MapInformation = {
+    mapNum?:number,
     catImage:string,
     catNum:number,
     catLocation:string
@@ -15,3 +16,15 @@ export type TotalSlides = number
 export type currentSlide = {
   currentSlide:number
 }
+
+export type mapInfo = {
+  mapList: 
+    {
+      // _id?:string;
+      key: number;
+      mapNum: string;
+      mapLocation1: number;
+      mapLocation2: number;
+      mapLocationName: string;
+    }[]
+};
