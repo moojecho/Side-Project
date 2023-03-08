@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
-import {logo} from "../../static/index";
 
 const InfinityImage = () => {
   

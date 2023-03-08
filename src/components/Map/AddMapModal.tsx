@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import DaumPostcode from "react-daum-postcode";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 
 import * as allTypes from "./type";
-import { logo } from "../../static/index";
 import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
+import { current } from "@reduxjs/toolkit";
 
 const AddMapModal = () => {
   const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
@@ -13,7 +14,8 @@ const AddMapModal = () => {
   const regNum = /[0-9]/;
   const dispatch = useAppDispatch();
 
-  const [example, setExample] = useState<number>(0);
+  const [daumMapApiToggle, setDaumMapApiToggle] = useState<boolean>(false);
+
   const [mapInformation, setMapInformation] = useState<allTypes.MapInformation>(
     { catImage: "", catNum: 0, catLocation: "" }
   );
@@ -25,6 +27,16 @@ const AddMapModal = () => {
   const sendMapInfo = () => {
     dispatch(__sendMapInfo(mapInformation));
     dispatch(changeMapToggle(true));
+  };
+
+  const daumMapModel = {
+    onOffMapApiModal: () => {
+      setDaumMapApiToggle((current) => !current);
+    },
+    selectAddress: (data: any) => {
+      setMapInformation({ ...mapInformation, catLocation: data.address });
+      setDaumMapApiToggle(false);
+    },
   };
 
   return (
@@ -54,6 +66,7 @@ const AddMapModal = () => {
           주소
           <CatInput
             value={mapInformation.catLocation}
+            onClick={daumMapModel.onOffMapApiModal}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setMapInformation({
                 ...mapInformation,
@@ -64,6 +77,14 @@ const AddMapModal = () => {
         </InputLayout>
         <AddButton onClick={sendMapInfo}>추가</AddButton>
       </Modal>
+      {daumMapApiToggle ? (
+        <DaumMapApiModal>
+          <DaumMapApiModalHeader>
+            <CancleMapApiModal onClick={daumMapModel.onOffMapApiModal}>✖</CancleMapApiModal>
+          </DaumMapApiModalHeader>
+          <DaumPostcode onComplete={daumMapModel.selectAddress} />
+        </DaumMapApiModal>
+      ) : null}
     </ModalLayout>
   );
 };
@@ -74,13 +95,14 @@ const AddMapModal = () => {
 //                     catLocation: e.target.value,
 //                   })
 //                 : window.alert("한글만 사용해주세요!")
-
-const ModalLayout = styled.div`
-  width: 100vw;
-  height: 100vh;
+const CenterLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+const ModalLayout = styled(CenterLayout)`
+  width: 100vw;
+  height: 100vh;
 `;
 
 const ModalBackGround = styled.div`
@@ -135,15 +157,12 @@ const CancleButton = styled.button`
   cursor: pointer;
 `;
 
-const ImageLayout = styled.div`
+const ImageLayout = styled(CenterLayout)`
   width: 250px;
   height: 200px;
   border: 1px solid black;
   margin: auto;
   margin-top: -20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const InputLayout = styled.div`
@@ -198,4 +217,17 @@ const AddButton = styled.button`
   cursor: pointer;
 `;
 
+const DaumMapApiModal = styled(Modal)`
+  width: 450px;
+  height: 460px;
+`;
+const DaumMapApiModalHeader = styled(CenterLayout)`
+  width: 450px;
+  height: 40px;
+  justify-content: right;
+`;
+const CancleMapApiModal = styled(CenterLayout)`
+  width: 60px;
+  cursor: pointer;
+`;
 export default AddMapModal;
