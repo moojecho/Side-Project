@@ -12,17 +12,6 @@ export type map = {
       mapLocation2: number;
       mapLocationName: string;
     }[]
-  // 이렇게 타입 설정하면 틀린 문법으로 나옴 위처럼 적용해야함
-  //   mapList:[ 
-  //   {
-  //     key: number;
-  //     mapNum: string;
-  //     mapLocation1: number;
-  //     mapLocation2: number;
-  //     mapLocationName: string;
-  //   }
-  // ]
-
 };
 const initialState: map = {
   mapList: [
