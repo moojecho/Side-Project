@@ -24,7 +24,7 @@ export type mapInfo = [
     mapNum: string;
     mapLocation1: number;
     mapLocation2: number;
-    mapLocationName: string;
+    catLocation: string;
   }
 ];
 

@@ -10,9 +10,20 @@ const MapList = () => {
   const example: allTypes.mapInfo = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
-
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+
+  const slidesLength = () => {
+    if(TOTAL_SLIDES===1){
+      return `10px 0px auto 400px`
+    }else if(TOTAL_SLIDES===2){
+      return `10px 0px auto 150px`
+    }else if(TOTAL_SLIDES===3){
+      return `10px 0px auto 75px`
+    }else{
+      return `10px 0px auto 45px`
+    }
+  }
 
   //다음 슬라이드 버튼-------------------------------------------------------
   const NextSlide = () => {
@@ -77,7 +88,7 @@ const MapList = () => {
       // 마커를 지도 위에 표시
       marker.setMap(map);
     });
-  }, []);
+  }, [example]);
 
   useEffect(() => {
     dispatch(__receiveMapInfo());
@@ -89,9 +100,9 @@ const MapList = () => {
       <SlideLayout>
         <Slide currentSlide={currentSlide}>
           {example.map((list) => {
-            return (<MapCard key={list.key}>
+            return (<MapCard key={list.key} marginChange={slidesLength()}>
               <CatPosition id={list.mapNum} />
-              <PositionInformation>{list.mapLocationName}</PositionInformation>
+              <PositionInformation>{list.catLocation}</PositionInformation>
             </MapCard>);
           })}
         </Slide>
@@ -132,7 +143,7 @@ const Slide = styled.div<allTypes.currentSlide>`
   }
 `;
 
-const MapCard = styled.div`
+const MapCard = styled.div<{marginChange:string}>`
   width: 180px;
   height: 30vh;
   background-color: #dbdbdb;
@@ -141,7 +152,7 @@ const MapCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 0px auto 45px;
+  margin: ${(props) =>  (props.marginChange)};
   @media only screen and (min-width: 1200px) {
     min-width: 180px;
   }
