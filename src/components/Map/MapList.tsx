@@ -10,6 +10,7 @@ const MapList = () => {
   const example: allTypes.mapInfo = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
+  
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
