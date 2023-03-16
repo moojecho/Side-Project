@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
@@ -10,21 +10,21 @@ const MapList = () => {
   const example: allTypes.mapInfo = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
-  
+
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slidesLength = () => {
-    if(TOTAL_SLIDES===1){
-      return `10px 0px auto 400px`
-    }else if(TOTAL_SLIDES===2){
-      return `10px 0px auto 150px`
-    }else if(TOTAL_SLIDES===3){
-      return `10px 0px auto 75px`
-    }else{
-      return `10px 0px auto 45px`
+    if (TOTAL_SLIDES === 1) {
+      return `10px 0px auto 400px`;
+    } else if (TOTAL_SLIDES === 2) {
+      return `10px 0px auto 150px`;
+    } else if (TOTAL_SLIDES === 3) {
+      return `10px 0px auto 75px`;
+    } else {
+      return `10px 0px auto 45px`;
     }
-  }
+  };
 
   //다음 슬라이드 버튼-------------------------------------------------------
   const NextSlide = () => {
@@ -101,10 +101,12 @@ const MapList = () => {
       <SlideLayout>
         <Slide currentSlide={currentSlide}>
           {example.map((list) => {
-            return (<MapCard key={list.key} marginChange={slidesLength()}>
-              <CatPosition id={list.mapNum} />
-              <PositionInformation>{list.catLocation}</PositionInformation>
-            </MapCard>);
+            return (
+              <MapCard key={list.key} marginChange={slidesLength()}>
+                <CatPosition id={list.mapNum} />
+                <PositionInformation>{list.catLocation}</PositionInformation>
+              </MapCard>
+            );
           })}
         </Slide>
       </SlideLayout>
@@ -113,12 +115,15 @@ const MapList = () => {
   );
 };
 
-const MapListLayout = styled.div`
+const CenterLayout = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MapListLayout = styled(CenterLayout)`
   width: 960px;
   height: 32vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   flex-direction: row;
   overflow: hidden;
   @media only screen and (max-width: 768px) {
@@ -144,16 +149,13 @@ const Slide = styled.div<allTypes.currentSlide>`
   }
 `;
 
-const MapCard = styled.div<{marginChange:string}>`
+const MapCard = styled(CenterLayout)<{ marginChange: string }>`
   width: 180px;
   height: 30vh;
   background-color: #dbdbdb;
   border-radius: 10px;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: ${(props) =>  (props.marginChange)};
+  margin: ${(props) => props.marginChange};
   @media only screen and (min-width: 1200px) {
     min-width: 180px;
   }
@@ -206,23 +208,9 @@ const CarouselLeftButton = styled.button`
   background-color: dbdbdb;
   z-index: 5;
   cursor: pointer;
-  @media only screen and (max-width: 480px) {
-  }
 `;
-const CarouselRightButton = styled.button`
-  width: 20px;
-  height: 60px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #626262;
-  font-size: 25px;
-  font-weight: bold;
-  border: 1px solid white;
-  border-radius: 5px;
-  background-color: dbdbdb;
-  cursor: pointer;
+const CarouselRightButton = styled(CarouselLeftButton)`
+  margin: auto 0 auto -15px;
 `;
 
 export default MapList;
