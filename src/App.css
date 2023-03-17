@@ -1,0 +1,14 @@
+@font-face {
+    font-family: NotoSanskr;
+    src: url('./static/font/NotoSansKR-Medium.otf');
+}
+
+@font-face {
+    font-family: NotoSanskr-Bold;
+    src: url('./static/font/NotoSansKR-Bold.otf');
+}
+
+@font-face {
+    font-family: NotoSanskr-Regular;
+    src: url('./static/font/NotoSansKR-Regular.otf');
+}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import * as allTypes from './type';
+import * as allTypes from "./type";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -12,12 +12,11 @@ const SignIn = () => {
   const [loginData, setloginData] = useState({ email: "", password: "" });
 
   //input 데이터 저장하기
-  const changeInput = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const { value, id } : allTypes.login = e.target;
+  const changeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, id }: allTypes.login = e.target;
     setloginData({ ...loginData, [id]: value });
   };
 
- 
   return (
     <LoginLayoutBox>
       <LoginBox>
@@ -26,7 +25,7 @@ const SignIn = () => {
           <LoginEmailinput
             id="email"
             type="email"
-            onChange={(e)=>changeInput(e)}
+            onChange={(e) => changeInput(e)}
             placeholder="이메일"
             required
           ></LoginEmailinput>
@@ -115,19 +114,10 @@ const LoginButton = styled.button`
   width: 300px;
   height: 50px;
   margin-bottom: 5px;
+  font-family: NotoSanskr;
   cursor: pointer;
-  &:hover {
-    background: #141414;
-    border: 1px solid #f5f5f5;
-    color: #f5f5f5;
-    font-weight: bold;
-  }
 `;
-// const SocialLoginButton = styled.button`
-//   width: 300px;
-//   height: 50px;
-//   cursor: pointer;
-// `;
+
 const Loginhr = styled.div`
   width: 100%;
   margin: 50px 0 30px 0;

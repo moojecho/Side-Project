@@ -30,16 +30,17 @@ const AddMapButtonLayout = styled.div`
   }
 `
 const AddButton = styled.button`
-  width: 30vw;
+  width: 35vw;
   /* min-width: 400px; */
   height: 6vh;
   font-size: 150%;
-  box-shadow: 0 2px 5px gray;
-  border: 2px solid #e45f0e;
-  border-radius: 20px;
-  background-color: #e4750e;
+  box-shadow: 0 0px 3px 0.5px gray;
+  color:#e45f0e;
+  border: none;
+  border-radius: 40px;
   margin: auto;
-
+  font-family: NotoSanskr-Bold;
+  cursor: pointer;
   @media only screen and (max-width: 480px) {
     width: 250px;
     font-size: 18px;

@@ -95,16 +95,7 @@ const CarouselLeftButton = styled.button`
   border-radius: 15px;
   cursor: pointer;
 `;
-const CarouselRightButton = styled.button`
-  width: 30px;
-  height: 30px;
-  margin: auto;
-  color: gray;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+const CarouselRightButton = styled(CarouselLeftButton)`
 `;
 
 const CarouselMoveButtonLayout = styled.div`

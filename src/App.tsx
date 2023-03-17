@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "./App.css";
 import styled from "styled-components";
 import { MainPage } from "./pages";
 
@@ -20,6 +21,7 @@ const DivApp = styled.div`
   justify-content: center;
   margin: -8px 0px;
   margin-left: -8px;
+  font-family: NotoSanskr;
 `;
 
 export default App;
