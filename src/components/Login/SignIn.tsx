@@ -8,10 +8,8 @@ import * as allTypes from "./type";
 const SignIn = () => {
   const navigate = useNavigate();
 
-  // data 입력 state
   const [loginData, setloginData] = useState({ email: "", password: "" });
 
-  //input 데이터 저장하기
   const changeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, id }: allTypes.login = e.target;
     setloginData({ ...loginData, [id]: value });
