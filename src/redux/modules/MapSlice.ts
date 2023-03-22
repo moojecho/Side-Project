@@ -11,6 +11,7 @@ export type map = {
       mapLocation1: number;
       mapLocation2: number;
       mapLocationName: string;
+      distance?:string;
     }[]
 };
 const initialState: map = {
@@ -20,9 +21,7 @@ const initialState: map = {
 export const __sendMapInfo = createAsyncThunk(
   "MAPINFO",
   async (payload: allTypes.MapInformation, thunkAPI) => {
-    console.log(payload);
     const { data } = await axios.post(`http://localhost:3001/catMap`, payload);
-    console.log(data);
     return thunkAPI.fulfillWithValue(data);
   }
 );
@@ -31,6 +30,7 @@ export const __receiveMapInfo = createAsyncThunk(
   "GETMAPINFO",
   async (payload, thunkAPI) => {
     const { data } = await axios.get(`http://localhost:3001/catMap`);
+    console.log(data);
     return thunkAPI.fulfillWithValue(data);
   }
 );

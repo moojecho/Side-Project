@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import {useGeolocation,useGetDistance} from "../../hooks/index";
 import { __receiveMapInfo } from "../../redux/modules/MapSlice";
 import * as allTypes from "./type";
 
 const MapList = () => {
   const dispatch = useAppDispatch();
+  const userLocation = useGeolocation();
   const example: allTypes.mapInfo = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
-
+    console.log(userLocation);
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
+  const [mapList, setMapList] = useState<allTypes.mapInfo>();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slidesLength = () => {
@@ -57,23 +60,7 @@ const MapList = () => {
         level: 5,
       };
       const map = new window.kakao.maps.Map(container, option);
-
-      // 주소로 좌표 변환----------------------------------------------------
-
-      // const geocoder = new window.kakao.maps.services.Geocoder();
-      // // 주소로 좌표를 검색합니다..
-      // geocoder.addressSearch(`${list.mapLocationName}`, function (result:any, status:any) {
-
-      //   // 정상적으로 검색이 완료됐으면
-      //   if (status === window.kakao.maps.services.Status.OK) {
-
-      //     var coords = new window.kakao.maps.LatLng(result[0].y, result[0].x);
-
-      //     // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-      //     map.setCenter(coords);
-      //   }
-      // })
-
+      
       // 마커--------------------------------------------------------------
 
       let markerPosition = new window.kakao.maps.LatLng(
@@ -102,7 +89,7 @@ const MapList = () => {
         <Slide currentSlide={currentSlide}>
           {example.map((list) => {
             return (
-              <MapCard key={list.key} marginChange={slidesLength()}>
+              <MapCard key={list._id} marginChange={slidesLength()}>
                 <CatPosition id={list.mapNum} />
                 <PositionInformation>{list.catLocation}</PositionInformation>
               </MapCard>
