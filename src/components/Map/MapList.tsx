@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import {useGeolocation,useGetDistance} from "../../hooks/index";
+import { useGeolocation, useGetDistance } from "../../hooks/index";
 import { __receiveMapInfo } from "../../redux/modules/MapSlice";
 import * as allTypes from "./type";
 
 const MapList = () => {
   const dispatch = useAppDispatch();
   const userLocation = useGeolocation();
+  const getDistance = useGetDistance();
   const example: allTypes.mapInfo = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
-    console.log(userLocation);
+  console.log(userLocation);
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [mapList, setMapList] = useState<allTypes.mapInfo>();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -60,7 +61,7 @@ const MapList = () => {
         level: 5,
       };
       const map = new window.kakao.maps.Map(container, option);
-      
+
       // 마커--------------------------------------------------------------
 
       let markerPosition = new window.kakao.maps.LatLng(
@@ -80,6 +81,7 @@ const MapList = () => {
 
   useEffect(() => {
     dispatch(__receiveMapInfo());
+    console.log(getDistance);
   }, []);
 
   return (

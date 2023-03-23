@@ -20,7 +20,7 @@ export type currentSlide = {
 export type mapInfo = [
   {
     _id?: string;
-    key: number;
+    catNum:number;
     mapNum: string;
     mapLocation1: number;
     mapLocation2: number;
