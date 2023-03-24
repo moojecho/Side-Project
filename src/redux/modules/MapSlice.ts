@@ -30,7 +30,6 @@ export const __receiveMapInfo = createAsyncThunk(
   "GETMAPINFO",
   async (payload, thunkAPI) => {
     const { data } = await axios.get(`http://localhost:3001/catMap`);
-    console.log(data);
     return thunkAPI.fulfillWithValue(data);
   }
 );
@@ -41,7 +40,6 @@ export const MapSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(__receiveMapInfo.fulfilled, (state, action) => {
-      console.log(action.payload)
       state.mapList = action.payload;
     });
   }

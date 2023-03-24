@@ -8,14 +8,13 @@ import * as allTypes from "./type";
 
 const MapList = () => {
   const dispatch = useAppDispatch();
-  const userLocation = useGeolocation();
-  const getDistance = useGetDistance();
-  const example: allTypes.mapInfo = useAppSelector(
+  const example: allTypes.mapInfo[] = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
-  console.log(userLocation);
+  const getDistance = useGetDistance(example);
+
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
-  const [mapList, setMapList] = useState<allTypes.mapInfo>();
+  const [mapList, setMapList] = useState<allTypes.mapInfo[]>([]);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slidesLength = () => {
@@ -51,7 +50,7 @@ const MapList = () => {
   //카카오 맵 api-------------------------------------------------------------
 
   useEffect(() => {
-    example.map((list) => {
+    mapList?.map((list) => {
       const container = document.getElementById(`${list.mapNum}`);
       const option = {
         center: new window.kakao.maps.LatLng(
@@ -77,29 +76,40 @@ const MapList = () => {
       // 마커를 지도 위에 표시
       marker.setMap(map);
     });
-  }, [example]);
+  }, [mapList]);
 
   useEffect(() => {
     dispatch(__receiveMapInfo());
-    console.log(getDistance);
   }, []);
+
+  useEffect(() => {
+    setMapList(getDistance);
+  }, [getDistance]);
 
   return (
     <MapListLayout>
-      <CarouselLeftButton onClick={PrevSlide}>{"<"}</CarouselLeftButton>
-      <SlideLayout>
-        <Slide currentSlide={currentSlide}>
-          {example.map((list) => {
-            return (
-              <MapCard key={list._id} marginChange={slidesLength()}>
-                <CatPosition id={list.mapNum} />
-                <PositionInformation>{list.catLocation}</PositionInformation>
-              </MapCard>
-            );
-          })}
-        </Slide>
-      </SlideLayout>
-      <CarouselRightButton onClick={NextSlide}>{">"}</CarouselRightButton>
+      {mapList.length ? (
+        <>
+          <CarouselLeftButton onClick={PrevSlide}>{"<"}</CarouselLeftButton>
+          <SlideLayout>
+            <Slide currentSlide={currentSlide}>
+              {mapList?.map((list) => {
+                return (
+                  <MapCard key={list._id} marginChange={slidesLength()}>
+                    <CatPosition id={list.mapNum} />
+                    <PositionInformation>
+                      {list.catLocation}
+                    </PositionInformation>
+                  </MapCard>
+                );
+              })}
+            </Slide>
+          </SlideLayout>
+          <CarouselRightButton onClick={NextSlide}>{">"}</CarouselRightButton>
+        </>
+      ) : (
+        `반경 3km 이내에 고양이가 없네요...😿\n직접 추가해볼까요?`
+      )}
     </MapListLayout>
   );
 };
@@ -113,20 +123,24 @@ const CenterLayout = styled.div`
 const MapListLayout = styled(CenterLayout)`
   width: 960px;
   height: 32vh;
+  font-size: 25px;
   flex-direction: row;
   overflow: hidden;
+  white-space: pre-wrap;
+  text-align: center;
   @media only screen and (max-width: 768px) {
     width: 495px;
   }
   @media only screen and (max-width: 480px) {
     width: 360px;
     height: 250px;
+    font-size: 13px;
   }
 `;
-
 const SlideLayout = styled.div`
   overflow: hidden;
   margin: auto;
+  text-align: left;
 `;
 
 const Slide = styled.div<allTypes.currentSlide>`

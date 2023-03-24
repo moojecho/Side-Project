@@ -17,7 +17,7 @@ export type currentSlide = {
   currentSlide: number;
 };
 
-export type mapInfo = [
+export type mapInfo = 
   {
     _id?: string;
     catNum:number;
@@ -25,8 +25,9 @@ export type mapInfo = [
     mapLocation1: number;
     mapLocation2: number;
     catLocation: string;
+    distance?:number;
   }
-];
+;
 
 export type locationType = {
   loaded: boolean;
