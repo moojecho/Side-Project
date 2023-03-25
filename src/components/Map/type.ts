@@ -19,6 +19,7 @@ export type currentSlide = {
 
 export type mapInfo = 
   {
+    image?:string;
     _id?: string;
     catNum:number;
     mapNum: string;
