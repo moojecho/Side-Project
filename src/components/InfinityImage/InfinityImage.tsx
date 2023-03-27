@@ -19,7 +19,7 @@ const InfinityImageLayout = styled.div`
   overflow: scroll;
   overflow-x: hidden;
   @media only screen and (max-width: 480px) {
-    width: 380px;
+    width: 350px;
     height: 70vh;
   }
 `;
@@ -34,7 +34,7 @@ const ImageLayoutTitle = styled.p`
     width: 360px;
     height: 40px;
     font-size: 18px;
-    margin: 0px 0 0px 45px;
+    margin: 0px 0 0px 30px;
   }
 `;
 
