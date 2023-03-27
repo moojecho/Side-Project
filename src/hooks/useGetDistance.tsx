@@ -30,7 +30,7 @@ const useGetDistance = (example: allTypes.mapInfo[]) => {
               Math.sin(dLon / 2);
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
           const distance = R * c; // km 단위의 거리
-          if (distance <= 3) {
+          if (distance >= 3) {
             // distance가 3 이하일 때 mapList에 list 추가
             setMapList((prevMapList) => [
               ...prevMapList,

@@ -17,6 +17,11 @@ const InfinityImageLayout = styled.div`
   margin: auto;
   flex-wrap: wrap;
   overflow: scroll;
+  overflow-x: hidden;
+  @media only screen and (max-width: 480px) {
+    width: 380px;
+    height: 70vh;
+  }
 `;
 const ImageLayoutTitle = styled.p`
   width: 500px;
@@ -25,6 +30,12 @@ const ImageLayoutTitle = styled.p`
   margin: 0px 0 0px 50px;
   font-family: NotoSanskr;
   font-weight: bold;
+  @media only screen and (max-width: 480px) {
+    width: 360px;
+    height: 40px;
+    font-size: 18px;
+    margin: 0px 0 0px 45px;
+  }
 `;
 
 export default InfinityImage;

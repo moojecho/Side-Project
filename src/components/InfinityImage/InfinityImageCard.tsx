@@ -7,41 +7,31 @@ const InfinityImageCard = () => {
     (state: any) => state.catLoctionMap.mapList
   );
 
-  console.log(cardList);
-
   return (
     <>
       {cardList?.map((list) => {
-        return <InfinityImagecardLayout src={list.image} />;
+        return <InfinityImagecard src={list.image} />;
       })}
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} />
     </>
   );
 };
 
-const InfinityImagecardLayout = styled.img`
+const InfinityImagecard = styled.img`
   max-width: 200px;
   height: 150px;
   border: "";
   border-radius: 2px;
   box-shadow: 0 0px 3px 0.5px gray;
   margin: 10px;
+  cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    width: 160px;
+    height: 120px;
+    font-size: 18px;
+    margin: 10px 0px 0px 22px;
+  }
 `;
 
 export default InfinityImageCard;

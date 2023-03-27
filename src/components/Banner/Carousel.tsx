@@ -60,7 +60,6 @@ const Carousel = () => {
     </CarouselLayout>
   );
 };
-
 const CarouselLayout = styled.div`
   width: 100vw;
   height: 36vh;
@@ -95,8 +94,7 @@ const CarouselLeftButton = styled.button`
   border-radius: 15px;
   cursor: pointer;
 `;
-const CarouselRightButton = styled(CarouselLeftButton)`
-`;
+const CarouselRightButton = styled(CarouselLeftButton)``;
 
 const CarouselMoveButtonLayout = styled.div`
   width: 85px;
