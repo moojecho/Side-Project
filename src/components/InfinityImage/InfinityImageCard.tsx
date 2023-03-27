@@ -31,7 +31,6 @@ const InfinityImageCard = () => {
       <InfinityImagecardLayout src={cardList[0].image} />
       <InfinityImagecardLayout src={cardList[0].image} />
       <InfinityImagecardLayout src={cardList[0].image} />
-      <InfinityImagecardLayout src={cardList[0].image} />
     </>
   );
 };
