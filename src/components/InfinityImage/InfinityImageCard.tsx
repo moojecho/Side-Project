@@ -12,8 +12,10 @@ const InfinityImageCard = () => {
       {cardList?.map((list) => {
         return <InfinityImagecard key={list._id} src={list.image} />;
       })}
-      {/* <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} /> */}
+      <InfinityImagecard src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} />
     </>
   );
 };
