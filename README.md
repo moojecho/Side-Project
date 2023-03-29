@@ -1,5 +1,5 @@
 <div align="center">
-<h1 style="background-color:#e45f0e; width:300px;"> 😺 Visit CAT 😺 </h1>
+<h1 style="background-color:#e45f0e; "> 😺 Visit CAT 😺 </h1>
 
 
 <br>
