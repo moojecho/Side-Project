@@ -38,7 +38,7 @@
 ![Typescript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
 ![ReactQuery](https://img.shields.io/badge/reactQuery-FF4154?style=for-the-badge&logo=reactQuery&logoColor=white)
-![Styledcomponents](https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Styledcomponents](https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white)
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Typescript-#3178C6?style=for-the-badge&logo=appveyor=typescript&logoColor=white"/>
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Axios-#5A29E4?style=for-the-badge&logo=appveyor=axios&logoColor=white"/>
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-#764ABC?style=for-the-badge&logo=appveyor=redux&logoColor=white"/>
