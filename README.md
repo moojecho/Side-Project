@@ -55,5 +55,3 @@
 
 ---
 </div>
-
-Sparta Innovation Camp in Seoul
