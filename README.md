@@ -14,7 +14,9 @@
 <br>
 여러 유저들에게 거주지 근처의 길 동물들의 정보를 공유하여 그들을 지켜주세요!
 
+<br>
 <h2> 🔨 구현 기능 🔨</h2>
+
 <br>
 ✔️ 배너를 통해 반려동물, 유기 동물 관련된 이벤트를 확인해 볼 수 있습니다. <br><br>
 
@@ -32,12 +34,12 @@
 <h2>⚙️ 기술 스택 </h2>
 <br>
 
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-#61DAFB?style=flat-square&logo=react&logoColor=white"/>
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Typescript-#3178C6?style=flat-square&logo=typescript&logoColor=white"/>
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Axios-#5A29E4?style=flat-square&logo=axios&logoColor=white"/>
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-#764ABC?style=flat-square&logo=redux&logoColor=white"/>
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/ReactQuery-#FF4154?style=flat-square&logo=reactquery&logoColor=white"/>
-<img src="https://img.shields.io/badge/styled components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-#61DAFB?style=for-the-badge&logo=appveyor=react&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Typescript-#3178C6?style=for-the-badge&logo=appveyor=typescript&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Axios-#5A29E4?style=for-the-badge&logo=appveyor=axios&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-#764ABC?style=for-the-badge&logo=appveyor=redux&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/ReactQuery-#FF4154?style=for-the-badge&logo=appveyor=reactquery&logoColor=white"/>
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=appveyor=styled-components&logoColor=white"/>
 
 <br>
 
