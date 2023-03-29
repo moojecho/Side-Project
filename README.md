@@ -46,7 +46,7 @@
 
 💻 FE : <br>
 
- 조무제 https://github.com/moojecho <br>
+ 조무제: https://github.com/moojecho <br>
 
 <br><br>
 
