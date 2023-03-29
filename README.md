@@ -34,7 +34,7 @@
 <h2>⚙️ 기술 스택 </h2>
 <br>
 
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-white?style=for-the-badge&logo=appveyor=react"/>
+![React](https://img.shields.io/badge/react-ffffff?style=for-the-badge&logo=react)
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Typescript-#3178C6?style=for-the-badge&logo=appveyor=typescript&logoColor=white"/>
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Axios-#5A29E4?style=for-the-badge&logo=appveyor=axios&logoColor=white"/>
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-#764ABC?style=for-the-badge&logo=appveyor=redux&logoColor=white"/>
