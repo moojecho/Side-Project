@@ -35,7 +35,7 @@
 <br>
 
 ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
-![Typescript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript)
+![Typescript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
 ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
 ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)
