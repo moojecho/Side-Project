@@ -1,8 +1,8 @@
 <div align="center">
-<h1 style="background-color:#e45f0e; "> 😺 Visit CAT 😺 </h1>
-
-
+<h1> 😺 Visit CAT 😺 </h1>
 <br>
+
+![logo](https://user-images.githubusercontent.com/107379879/228461155-90bfec7d-d14f-4da6-bff0-d5fa30b6d49c.png)
 
 <br>
 고양이를 비롯해 점점 많은 인기를 얻는 동물들이 늘어나고 있습니다.
