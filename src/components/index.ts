@@ -3,3 +3,4 @@ export {Banner} from "./Banner"
 export {LoginModal} from "./Login";
 export {Map,AddMapModal} from "./Map";
 export {InfinityImage} from './InfinityImage';
+export { Footer } from "./Footer";

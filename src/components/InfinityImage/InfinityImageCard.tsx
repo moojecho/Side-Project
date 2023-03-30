@@ -12,10 +12,10 @@ const InfinityImageCard = () => {
       {cardList?.map((list) => {
         return <InfinityImagecard key={list._id} src={list.image} />;
       })}
+      {/* <InfinityImagecard src={cardList[0].image} />
       <InfinityImagecard src={cardList[0].image} />
       <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} />
+      <InfinityImagecard src={cardList[0].image} /> */}
     </>
   );
 };
@@ -26,7 +26,7 @@ const InfinityImagecard = styled.img`
   border: "";
   border-radius: 2px;
   box-shadow: 0 0px 3px 0.5px gray;
-  margin: 10px;
+  margin: 10px 15px 0 20px;
   cursor: pointer;
   @media only screen and (max-width: 480px) {
     width: 150px;

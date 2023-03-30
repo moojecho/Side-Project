@@ -16,7 +16,7 @@ function App() {
 const DivApp = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+  overflow-x: visible;
   display: flex;
   justify-content: center;
   margin: -8px 0px;

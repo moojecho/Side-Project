@@ -19,13 +19,13 @@ const MapList = () => {
 
   const slidesLength = () => {
     if (TOTAL_SLIDES === 1) {
-      return `10px 0px auto 400px`;
+      return `10px 200px auto 200px`;
     } else if (TOTAL_SLIDES === 2) {
-      return `10px 0px auto 150px`;
+      return `10px 75px auto 75px`;
     } else if (TOTAL_SLIDES === 3) {
-      return `10px 0px auto 75px`;
+      return `10px 37.5px auto 37.5px`;
     } else {
-      return `10px 0px auto 45px`;
+      return `10px 22.5px auto 22.5px`;
     }
   };
 

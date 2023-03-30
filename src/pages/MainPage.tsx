@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Header, Banner, LoginModal,Map,AddMapModal,InfinityImage } from "../components/index";
+import { Header, Banner, LoginModal,Map,AddMapModal,InfinityImage,Footer } from "../components/index";
 
 const MainPage = () => {
   const loginToggle = useSelector(
@@ -18,6 +18,7 @@ const MainPage = () => {
       <InfinityImage/>
       {loginToggle ? <LoginModal /> : null}
       {addMapToggle ? <AddMapModal /> : null}
+      <Footer/>
     </div>
   );
 };

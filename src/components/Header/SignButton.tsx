@@ -12,7 +12,7 @@ const SignButtonLayout = styled.div`
   width: 70px;
   height: 35px;
   color: white;
-  background-color: #e4750e;
+  background-color: #FF9500;
   border: 1px solid #dbdbdb;
   border-radius: 10px;
   display: flex;

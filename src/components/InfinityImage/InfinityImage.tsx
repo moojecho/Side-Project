@@ -13,14 +13,14 @@ const InfinityImage = () => {
 
 const InfinityImageLayout = styled.div`
   width: 960px;
-  height: 80vh;
+  min-height: 300px;
   margin: auto;
   flex-wrap: wrap;
   overflow: scroll;
   overflow-x: hidden;
   @media only screen and (max-width: 480px) {
     width: 350px;
-    height: 70vh;
+    min-height: 200px;
   }
 `;
 const ImageLayoutTitle = styled.p`
