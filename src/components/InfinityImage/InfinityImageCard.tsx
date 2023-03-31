@@ -14,7 +14,6 @@ const InfinityImageCard = () => {
       })}
       {/* <InfinityImagecard src={cardList[0].image} />
       <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} />
       <InfinityImagecard src={cardList[0].image} /> */}
     </>
   );

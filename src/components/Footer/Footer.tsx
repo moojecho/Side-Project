@@ -1,24 +1,33 @@
 import styled from "styled-components";
 
-const Foooter = () => {
+const Footer = () => {
   return (
-    <InfinityImageLayout>
-    </InfinityImageLayout>
+    <FooterLayout>
+      <TeamInfoLayout>{'상호명: (주)VisitCat \n팀원: 조무제(FE,BE)\n주소: 서울특별시 강서구 금낭화로'}</TeamInfoLayout>
+    </FooterLayout>
   );
 };
 
-const InfinityImageLayout = styled.div`
+const FooterLayout = styled.div`
   width: 100vw;
   min-height: 250px;
-  margin: auto;
-  flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
   background-color: #FF9500;
+  display: flex;
+  align-items: center;
   @media only screen and (max-width: 480px) {
     width: 350px;
     min-height: 200px;
   }
 `;
 
-export default Foooter;
+
+const TeamInfoLayout = styled.div`
+  width: 400px;
+  height: 200px;
+  color: white;
+  font-size: 12px;
+  margin-left: 50px;
+  white-space: pre-wrap;
+`;
+
+export default Footer;
