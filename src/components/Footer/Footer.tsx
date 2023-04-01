@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <FooterLayout>
-      <TeamInfoLayout>{'상호명: (주)VisitCat \n팀원: 조무제(FE,BE)\n주소: 서울특별시 강서구 금낭화로'}</TeamInfoLayout>
+      <TeamInfoLayout>{'상호명: (주)VisitCat \n팀원: 조무제(FE) | 조무제 (BE)\n주소: 서울특별시 강서구 금낭화로'}</TeamInfoLayout>
     </FooterLayout>
   );
 };

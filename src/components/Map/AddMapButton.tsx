@@ -14,7 +14,7 @@ const AddMapButton = () => {
   }
   return (
     <AddMapButtonLayout>
-        <AddButton onClick={()=>changeToggle(addMapToggle)}>길냥이 위치 추가하기😻</AddButton>
+        <AddButton onClick={()=>changeToggle(addMapToggle)}>미콩이 위치 추가하기😻</AddButton>
     </AddMapButtonLayout>
   );
 };

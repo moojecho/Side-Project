@@ -76,8 +76,9 @@ const SlideLayout = styled.div`
 
 const CarouselImage = styled.img`
   // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
-  translate: -100vw;
+  translate: -99.6vw;
   width: 100vw;
+  min-width: 960px;
   height: 35vh;
   background-color: green;
 `;
