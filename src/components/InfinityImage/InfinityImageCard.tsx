@@ -1,20 +1,15 @@
+import React from "react";
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import * as allTypes from "./type";
+import axios from "axios";
 
-const InfinityImageCard = () => {
-  const cardList: allTypes.mapInfo[] = useAppSelector(
-    (state: any) => state.catLoctionMap.mapList
-  );
-
+const InfinityImageCard = ({mapList}: {mapList:allTypes.mapInfo[]}) => {
+ 
   return (
     <>
-      {cardList?.map((list) => {
+      {mapList?.map((list) => {
         return <InfinityImagecard key={list._id} src={list.image} />;
       })}
-      {/* <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} />
-      <InfinityImagecard src={cardList[0].image} /> */}
     </>
   );
 };
