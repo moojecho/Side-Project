@@ -1,4 +1,4 @@
-import { useRef,useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -13,22 +13,26 @@ const fetchData = async (key: string) => {
 const InfinityImage = () => {
   const pageRef = useRef(1);
 
-  const { data, isFetching, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     ["items", pageRef.current],
-    () => fetchData("items"),
+    () => fetchData("items")
   );
 
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>(data);
 
-  // const mapList: allTypes.mapInfo[] = data;
+  // if (isFetching)
+  //   return <FetchingError>{`서버에서 문제가 생겼나봐요`}</FetchingError>;
+  // if (isLoading) return <FetchingError>{`로딩중이에요!`}</FetchingError>;
 
-  if (isFetching) return <div>{`서버에서 문제가 생겼나봐요`}</div>;
-  if (isLoading) return <div>{`로딩중이에요!`}</div>;
-
+  console.log(data, isFetching, isLoading);
   return (
     <InfinityImageLayout>
       <ImageLayoutTitle>실제 길냥이들을 만나봐요!</ImageLayoutTitle>
-      <InfinityImageCard mapList={mapList} />
+      {isLoading ? (
+        <FetchingError>{`로딩중이에요!`}</FetchingError>
+      ) : (
+        <InfinityImageCard mapList={mapList} />
+      )}
     </InfinityImageLayout>
   );
 };
@@ -57,6 +61,21 @@ const ImageLayoutTitle = styled.p`
     height: 40px;
     font-size: 18px;
     margin: 0px 0 0px 30px;
+  }
+`;
+
+const FetchingError = styled.div`
+  width: 960px;
+  min-height: 250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  @media only screen and (max-width: 480px) {
+    width: 350px;
+    min-height: 200px;
+    font-size: 15px;
   }
 `;
 

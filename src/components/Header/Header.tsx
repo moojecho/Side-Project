@@ -29,14 +29,20 @@ const Header = () => {
 const HeaderLayout = styled.div`
   width: 100%;
   height: 8vh;
+  min-height: 50px;
   background-color: white;
   border-bottom: 0.5px solid gray;
-  position: absolute;
+  position: fixed;
   z-index: 15;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0.5px 1px gray;
+  @media only screen and (max-width: 480px) {
+    min-width: 50px;
+    min-height: 50px;
+    height: 50px;
+  }
 `;
 
 const LogoLayout = styled.div`
@@ -49,11 +55,13 @@ const LogoLayout = styled.div`
 `;
 
 const Logo = styled.img`
+  min-width: 80px;
   width: 4.5vw;
   height: 7.5vh;
   @media only screen and (max-width: 480px) {
-    width: 50px;
+    min-width: 50px;
     height: 50px;
+    margin-left: -20px;
   }
   cursor: pointer;
 `;

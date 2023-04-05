@@ -123,12 +123,12 @@ const CenterLayout = styled.div`
 const MapListLayout = styled(CenterLayout)`
   width: 960px;
   height: 32vh;
+  min-height: 250px;
   font-size: 25px;
   flex-direction: row;
   overflow: hidden;
   white-space: pre-wrap;
   text-align: center;
-
   @media only screen and (max-width: 768px) {
     width: 495px;
   }
@@ -136,7 +136,7 @@ const MapListLayout = styled(CenterLayout)`
     width: 360px;
     height: 250px;
     font-size: 13px;
-    margin-top: 10px;
+    margin-top: 0px;
   }
 `;
 const SlideLayout = styled.div`

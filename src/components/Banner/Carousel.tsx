@@ -8,7 +8,7 @@ const Carousel = () => {
   const TOTAL_SLIDES: allTypes.TotalSlides = 2;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const slideRef = useRef<HTMLInputElement>(null);
-
+ 
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(currentSlide + 1);
@@ -62,11 +62,15 @@ const Carousel = () => {
 };
 const CarouselLayout = styled.div`
   width: 100vw;
-  height: 36vh;
+  height: 40vh;
+  min-height: 255px;
   display: flex;
   align-items: center;
-  margin-top: 10px;
   position: relative;
+  @media only screen and (max-width: 480px) {
+    height: 18vh;
+    min-height: 150px;
+  }
 `;
 
 const SlideLayout = styled.div`
@@ -74,13 +78,17 @@ const SlideLayout = styled.div`
   transition: all 0.5s ease-in-out;
 `;
 
+// 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
 const CarouselImage = styled.img`
-  // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
-  translate: -99.6vw;
+  transform: translateX(-100vw);
   width: 100vw;
-  min-width: 960px;
-  height: 35vh;
-  background-color: green;
+  height: 40vh;
+  min-height: 255px;
+  @media only screen and (max-width: 480px) {
+    transform: translateX(-100vw);
+    height: 18vh;
+    min-height: 150px;
+  }
 `;
 
 const CarouselLeftButton = styled.button`

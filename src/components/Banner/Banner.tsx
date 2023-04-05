@@ -1,22 +1,26 @@
-import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import {Carousel} from "./index"
+import { Carousel } from "./index";
 
 const Banner = () => {
- 
+
   return (
-    <BannerLayout>
-      <Carousel/>
+    <BannerLayout >
+      <Carousel />
     </BannerLayout>
   );
 };
 
 const BannerLayout = styled.div`
   width: 100vw;
-  height: 32vh;
-  margin-top: 8.9vh;
+  height: 40vh;
+  margin-top: 50px;
   display: flex;
   align-items: center;
-`
+  @media only screen and (max-width: 480px) {
+    height: 18vh;
+    min-height: 150px;
+  }
+`;
 
 export default Banner;

@@ -16,12 +16,12 @@ const Map = () => {
 const MapLayout = styled.div`
   width: 99.9vw;
   height: 60vh;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   @media only screen and (max-width: 480px) {
     height: 400px;
-    font-size: 13px;
   }
 `;
 

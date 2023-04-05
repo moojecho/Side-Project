@@ -22,10 +22,11 @@ const DivApp = styled.div`
   height: 100vh;
   overflow-x: visible;
   display: flex;
-  justify-content: center;
-  margin: -8px 0px;
-  margin-left: -8px;
+  margin: -8px 0px 0px -8px;
   font-family: NotoSanskr;
+  @media only screen and (max-width: 480px) {
+    overflow-x: hidden;
+  }
 `;
 
 export default App;

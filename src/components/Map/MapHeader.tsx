@@ -15,7 +15,7 @@ const MapHeaderLayout = styled.div`
   @media only screen and (max-width: 480px) {
     width: 350px;
     height: 30px;
-    margin: 10px 0 -10px 0;
+    margin: -10px 0 -10px 0;
   }
 `;
 
@@ -27,7 +27,7 @@ const MapTitle = styled.p`
   @media only screen and (max-width: 480px) {
     font-size: 18px;
     font-weight: bold;
-    margin: 10px 0 0 30px;
+    margin: 0 0 0 30px;
   }
 `;
 

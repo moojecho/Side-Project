@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import * as allTypes from "./type";
-import axios from "axios";
 
-const InfinityImageCard = ({mapList}: {mapList:allTypes.mapInfo[]}) => {
- 
+const InfinityImageCard = ({ mapList }: { mapList: allTypes.mapInfo[] }) => {
   return (
     <>
       {mapList?.map((list) => {
-        return <InfinityImagecard key={list._id} src={list.image} />;
+        return <ImageCard key={list._id} src={list.image} />;
       })}
     </>
   );
 };
 
-const InfinityImagecard = styled.img`
+const ImageCard = styled.img`
   max-width: 200px;
   height: 150px;
   border: "";
