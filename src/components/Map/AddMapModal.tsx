@@ -6,7 +6,6 @@ import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import * as allTypes from "./type";
 import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
-import { current } from "@reduxjs/toolkit";
 
 const AddMapModal = () => {
   const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
@@ -230,4 +229,5 @@ const CancleMapApiModal = styled(CenterLayout)`
   width: 60px;
   cursor: pointer;
 `;
+
 export default AddMapModal;
