@@ -15,13 +15,14 @@ const Map = () => {
 
 const MapLayout = styled.div`
   width: 99.9vw;
-  height: 60vh;
-  min-height: 400px;
+  height: 70vh;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   @media only screen and (max-width: 480px) {
-    height: 400px;
+    height: 410px;
+    min-height: 400px;
   }
 `;
 

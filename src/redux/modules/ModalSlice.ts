@@ -25,7 +25,6 @@ export const ModalSlice = createSlice({
     },
     changeMapToggle: (state, action: PayloadAction<boolean>) => {
       state.addMapModal = {...state.addMapModal,toggle:!action.payload};
-      console.log(state.addMapModal.toggle);
     },
   },
 

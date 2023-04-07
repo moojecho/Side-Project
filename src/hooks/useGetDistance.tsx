@@ -5,7 +5,7 @@ import { useGeolocation } from "./index";
 const useGetDistance = (example: allTypes.mapInfo[]) => {
   const userLocation = useGeolocation();
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>([]);
-
+  
   useEffect(() => {
     if (example) {
       example.forEach((list) => {
@@ -30,7 +30,7 @@ const useGetDistance = (example: allTypes.mapInfo[]) => {
               Math.sin(dLon / 2);
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
           const distance = R * c; // km 단위의 거리
-          if (distance >= 3) {
+          if (distance >= 0) {
             // distance가 3 이하일 때 mapList에 list 추가
             setMapList((prevMapList) => [
               ...prevMapList,
@@ -41,6 +41,7 @@ const useGetDistance = (example: allTypes.mapInfo[]) => {
       });
     }
   }, [example, userLocation.coordinates?.lat]);
+  
   return mapList;
 };
 

@@ -23,9 +23,8 @@ const AddMapButton = () => {
 };
 
 const AddMapButtonLayout = styled.div`
-  height: 11vh;
+  height: 20vh;
   min-height: 100px;
-  margin: 50px 0 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +35,7 @@ const AddMapButtonLayout = styled.div`
 `;
 const AddButton = styled.button`
   width: 35vw;
-  /* min-width: 400px; */
+  min-width: 400px;
   height: 6vh;
   min-height: 50px;
   font-size: 150%;
@@ -49,6 +48,7 @@ const AddButton = styled.button`
   cursor: pointer;
   @media only screen and (max-width: 480px) {
     width: 250px;
+    min-width: 200px;
     min-height: 40px;
     height: 40px;
     font-size: 18px;

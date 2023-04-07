@@ -85,7 +85,7 @@ const MapList = () => {
   useEffect(() => {
     setMapList(getDistance);
   }, [getDistance]);
-
+console.log(mapList);
   return (
     <MapListLayout>
       {mapList.length ? (
@@ -123,7 +123,7 @@ const CenterLayout = styled.div`
 const MapListLayout = styled(CenterLayout)`
   width: 960px;
   height: 32vh;
-  min-height: 250px;
+  min-height: 300px;
   font-size: 25px;
   flex-direction: row;
   overflow: hidden;
@@ -157,13 +157,11 @@ const Slide = styled.div<allTypes.currentSlide>`
 const MapCard = styled(CenterLayout)<{ marginChange: string }>`
   width: 180px;
   height: 30vh;
+  min-height: 250px;
   background-color: #dbdbdb;
   border-radius: 10px;
   flex-direction: column;
   margin: ${(props) => props.marginChange};
-  @media only screen and (min-width: 1200px) {
-    min-width: 180px;
-  }
   @media only screen and (max-width: 480px) {
     width: 130px;
     height: 200px;
@@ -174,6 +172,7 @@ const MapCard = styled(CenterLayout)<{ marginChange: string }>`
 const CatPosition = styled.div`
   width: 160px;
   height: 22vh;
+  min-height: 180px;
   margin-bottom: 10px;
   @media only screen and (max-width: 480px) {
     width: 120px;

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -17,14 +17,19 @@ const InfinityImage = () => {
     ["items", pageRef.current],
     () => fetchData("items")
   );
-
+  
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>(data);
 
   // if (isFetching)
   //   return <FetchingError>{`서버에서 문제가 생겼나봐요`}</FetchingError>;
   // if (isLoading) return <FetchingError>{`로딩중이에요!`}</FetchingError>;
 
-  console.log(data, isFetching, isLoading);
+  useEffect(() => {
+    if (data) {
+      setMapList(data);
+    }
+  }, [data]);
+
   return (
     <InfinityImageLayout>
       <ImageLayoutTitle>실제 길냥이들을 만나봐요!</ImageLayoutTitle>
@@ -46,7 +51,7 @@ const InfinityImageLayout = styled.div`
   overflow-x: hidden;
   @media only screen and (max-width: 480px) {
     width: 350px;
-    min-height: 200px;
+    min-height: 450px;
   }
 `;
 const ImageLayoutTitle = styled.p`
