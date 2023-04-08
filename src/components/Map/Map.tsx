@@ -14,9 +14,10 @@ const Map = () => {
 };
 
 const MapLayout = styled.div`
-  width: 99.9vw;
+  width: 960px;
   height: 70vh;
   min-height: 650px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

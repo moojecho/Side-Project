@@ -10,8 +10,8 @@ const MapHeader = () => {
 };
 
 const MapHeaderLayout = styled.div`
-  width: 900px;
-  height: 7vh;
+  width: 960px;
+  height: 50px;
   @media only screen and (max-width: 480px) {
     width: 350px;
     height: 30px;
@@ -20,14 +20,17 @@ const MapHeaderLayout = styled.div`
 `;
 
 const MapTitle = styled.p`
+  width: 500px;
+  height: 50px;
   font-size: 25px;
+  margin: 0px 0 0px 50px;
+  font-family: NotoSanskr;
   font-weight: bold;
-  margin: 15px 0 0 20px;
-
   @media only screen and (max-width: 480px) {
+    width: 360px;
+    height: 40px;
     font-size: 18px;
-    font-weight: bold;
-    margin: 0 0 0 30px;
+    margin: 0px 0 0px 30px;
   }
 `;
 
