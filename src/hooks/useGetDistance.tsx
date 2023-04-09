@@ -5,13 +5,13 @@ import { useGeolocation } from "./index";
 const useGetDistance = (example: allTypes.mapInfo[]) => {
   const userLocation = useGeolocation();
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>([]);
-  
+
   useEffect(() => {
     if (example) {
       example.forEach((list) => {
         if (userLocation.coordinates?.lat && userLocation.coordinates?.lng) {
           const lat1: number | undefined = userLocation.coordinates?.lat;
-          const lon1: number | undefined = userLocation.coordinates?.lng; // 수정된 부분
+          const lon1: number | undefined = userLocation.coordinates?.lng;
           const lat2: number | undefined = list.mapLocation1;
           const lon2: number | undefined = list.mapLocation2;
 
@@ -25,9 +25,9 @@ const useGetDistance = (example: allTypes.mapInfo[]) => {
           const a =
             Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos(deg2rad(lat1)) *
-              Math.cos(deg2rad(lat2)) *
-              Math.sin(dLon / 2) *
-              Math.sin(dLon / 2);
+            Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
           const distance = R * c; // km 단위의 거리
           if (distance >= 0) {
@@ -41,7 +41,7 @@ const useGetDistance = (example: allTypes.mapInfo[]) => {
       });
     }
   }, [example, userLocation.coordinates?.lat]);
-  
+
   return mapList;
 };
 

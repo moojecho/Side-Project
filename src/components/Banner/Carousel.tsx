@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import * as allTypes from "./type";
 
-import { banner1, banner2, banner3, banner5 } from "../../static/index";
+import { banner1, banner3, banner5 } from "../../static/index";
 
 const Carousel = () => {
   const TOTAL_SLIDES: allTypes.TotalSlides = 2;
@@ -13,6 +13,7 @@ const Carousel = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(currentSlide + 1);
       setTimeout(() => setCurrentSlide(0), 1000);
+      // setCurrentSlide(0)
     } else {
       setCurrentSlide(currentSlide + 1);
     }
@@ -41,7 +42,7 @@ const Carousel = () => {
 
   return (
     <CarouselLayout>
-      <SlideLayout ref={slideRef}>
+      <SlideLayout ref={slideRef} currentSlide={currentSlide}>
         <CarouselImage style={{ background: "orange" }} />
         <CarouselImage src={banner5} />
         <CarouselImage src={banner1} />
@@ -73,9 +74,9 @@ const CarouselLayout = styled.div`
   }
 `;
 
-const SlideLayout = styled.div`
+const SlideLayout = styled.div<{currentSlide:number}>`
   display: flex;
-  transition: all 0.5s ease-in-out;
+  transition: ${(props) =>props.currentSlide===0? null: `all 0.5s ease-in-out`}; 
 `;
 
 // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
