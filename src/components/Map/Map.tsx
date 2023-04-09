@@ -14,7 +14,7 @@ const Map = () => {
 };
 
 const MapLayout = styled.div`
-  width: 960px;
+  width: 99.9vw;
   height: 70vh;
   min-height: 650px;
   margin: auto;
