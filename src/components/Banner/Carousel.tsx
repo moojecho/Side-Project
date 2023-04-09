@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import * as allTypes from "./type";
 
 import { banner1, banner3, banner5 } from "../../static/index";
 
+const TOTAL_SLIDES: number = 2;
+
 const Carousel = () => {
-  const TOTAL_SLIDES: allTypes.TotalSlides = 2;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [prevSlideNum, setPrevSlideNum] = useState<number>(0);
   const [slideMoveToggle, setSlideMoveToggle] = useState<boolean>(true);
@@ -14,7 +14,7 @@ const Carousel = () => {
   const NextSlide = () => {
     if (slideMoveToggle) {
       setSlideMoveToggle(false);
-      if (currentSlide >= TOTAL_SLIDES) {
+      if (currentSlide === TOTAL_SLIDES) {
         setPrevSlideNum(currentSlide);
         setCurrentSlide(currentSlide + 1);
         setTimeout(() => {
@@ -75,13 +75,13 @@ const Carousel = () => {
         {currentSlide > TOTAL_SLIDES ? <CarouselImage src={banner5} /> : null}
       </SlideLayout>
       <CarouselMoveButtonLayout>
-        <CarouselLeftButton onClick={() => PrevSlide()}>
+        <CarouselPrevButton onClick={() => PrevSlide()}>
           {"<"}
-        </CarouselLeftButton>
-        <CarouselLeftButton>{"||"}</CarouselLeftButton>
-        <CarouselRightButton onClick={() => NextSlide()}>
+        </CarouselPrevButton>
+        <CarouselPrevButton>{"||"}</CarouselPrevButton>
+        <CarouselNextButton onClick={() => NextSlide()}>
           {">"}
-        </CarouselRightButton>
+        </CarouselNextButton>
       </CarouselMoveButtonLayout>
     </CarouselLayout>
   );
@@ -104,8 +104,8 @@ const CarouselLayout = styled.div`
 const SlideLayout = styled.div<{ currentSlide: number; prevSlideNum: number }>`
   display: flex;
   transition: ${(props) =>
-    props.prevSlideNum === 0 || props.prevSlideNum === 2
-      ? props.currentSlide === 0 || props.currentSlide === 2
+    props.prevSlideNum === 0 || props.prevSlideNum === TOTAL_SLIDES
+      ? props.currentSlide === 0 || props.currentSlide === TOTAL_SLIDES
         ? null
         : `all 0.2s ease-in-out`
       : `all 0.2s ease-in-out`};
@@ -124,7 +124,7 @@ const CarouselImage = styled.img`
   }
 `;
 
-const CarouselLeftButton = styled.button`
+const CarouselPrevButton = styled.button`
   width: 30px;
   height: 30px;
   margin: auto;
@@ -136,7 +136,7 @@ const CarouselLeftButton = styled.button`
   border-radius: 15px;
   cursor: pointer;
 `;
-const CarouselRightButton = styled(CarouselLeftButton)``;
+const CarouselNextButton = styled(CarouselPrevButton)``;
 
 const CarouselMoveButtonLayout = styled.div`
   width: 85px;
