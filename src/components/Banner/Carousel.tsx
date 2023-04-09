@@ -7,30 +7,51 @@ import { banner1, banner3, banner5 } from "../../static/index";
 const Carousel = () => {
   const TOTAL_SLIDES: allTypes.TotalSlides = 2;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [prevSlideNum, setPrevSlideNum] = useState<number>(0);
+  const [slideMoveToggle, setSlideMoveToggle] = useState<boolean>(true);
   const slideRef = useRef<HTMLInputElement>(null);
- 
+
   const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
-      setCurrentSlide(currentSlide + 1);
-      setTimeout(() => setCurrentSlide(0), 1000);
-      // setCurrentSlide(0)
-    } else {
-      setCurrentSlide(currentSlide + 1);
+    if (slideMoveToggle) {
+      setSlideMoveToggle(false);
+      if (currentSlide >= TOTAL_SLIDES) {
+        setPrevSlideNum(currentSlide);
+        setCurrentSlide(currentSlide + 1);
+        setTimeout(() => {
+          setCurrentSlide(0);
+          setSlideMoveToggle(true);
+        }, 300);
+      } else {
+        setPrevSlideNum(currentSlide);
+        setCurrentSlide(currentSlide + 1);
+        setTimeout(() => setSlideMoveToggle(true), 300);
+      }
     }
   };
 
   const PrevSlide = () => {
-    if (currentSlide === 0) {
-      setCurrentSlide(currentSlide - 1);
-      setTimeout(() => setCurrentSlide(TOTAL_SLIDES), 1000);
-    } else {
-      setCurrentSlide(currentSlide - 1);
+    if (slideMoveToggle) {
+      setSlideMoveToggle(false);
+      if (currentSlide === 0) {
+        setPrevSlideNum(currentSlide);
+        setCurrentSlide(currentSlide - 1);
+        setTimeout(() => {
+          setCurrentSlide(TOTAL_SLIDES);
+          setSlideMoveToggle(true);
+        }, 300);
+      } else {
+        setPrevSlideNum(currentSlide);
+        setCurrentSlide(currentSlide - 1);
+        setTimeout(() => {
+          setSlideMoveToggle(true);
+        }, 300);
+      }
     }
   };
 
   useEffect(() => {
     if (slideRef.current)
-      if (currentSlide === -1 || currentSlide === TOTAL_SLIDES + 1) {
+      if (currentSlide === TOTAL_SLIDES + 1) {
         slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
       } else {
         slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`;
@@ -42,8 +63,12 @@ const Carousel = () => {
 
   return (
     <CarouselLayout>
-      <SlideLayout ref={slideRef} currentSlide={currentSlide}>
-        <CarouselImage style={{ background: "orange" }} />
+      <SlideLayout
+        ref={slideRef}
+        currentSlide={currentSlide}
+        prevSlideNum={prevSlideNum}
+      >
+        <CarouselImage src={banner3} />
         <CarouselImage src={banner5} />
         <CarouselImage src={banner1} />
         <CarouselImage src={banner3} />
@@ -61,6 +86,7 @@ const Carousel = () => {
     </CarouselLayout>
   );
 };
+
 const CarouselLayout = styled.div`
   width: 100vw;
   height: 40vh;
@@ -68,15 +94,21 @@ const CarouselLayout = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
   @media only screen and (max-width: 480px) {
     height: 18vh;
     min-height: 150px;
   }
 `;
 
-const SlideLayout = styled.div<{currentSlide:number}>`
+const SlideLayout = styled.div<{ currentSlide: number; prevSlideNum: number }>`
   display: flex;
-  transition: ${(props) =>props.currentSlide===0? null: `all 0.5s ease-in-out`}; 
+  transition: ${(props) =>
+    props.prevSlideNum === 0 || props.prevSlideNum === 2
+      ? props.currentSlide === 0 || props.currentSlide === 2
+        ? null
+        : `all 0.2s ease-in-out`
+      : `all 0.2s ease-in-out`};
 `;
 
 // 슬라이드 1페이지에서 뒤로 가려 했을때 보여질 복제 슬라이드를 위한 x조정
