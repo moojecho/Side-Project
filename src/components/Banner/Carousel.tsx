@@ -11,24 +11,6 @@ const Carousel = () => {
   const [slideMoveToggle, setSlideMoveToggle] = useState<boolean>(true);
   const slideRef = useRef<HTMLInputElement>(null);
 
-  // const NextSlide = () => {
-  //   if (slideMoveToggle) {
-  //     setSlideMoveToggle(false);
-  //     if (currentSlide === TOTAL_SLIDES) {
-  //       setPrevSlideNum(currentSlide);
-  //       setCurrentSlide(currentSlide + 1);
-  //       setTimeout(() => {
-  //         setCurrentSlide(0);
-  //         setSlideMoveToggle(true);
-  //       }, 300);
-  //     } else {
-  //       setPrevSlideNum(currentSlide);
-  //       setCurrentSlide(currentSlide + 1);
-  //       setTimeout(() => setSlideMoveToggle(true), 300);
-  //     }
-  //   }
-  // };
-
   const NextSlide = () => {
     if (slideMoveToggle) {
       setSlideMoveToggle(false);
@@ -46,20 +28,14 @@ const Carousel = () => {
   const PrevSlide = () => {
     if (slideMoveToggle) {
       setSlideMoveToggle(false);
-      if (currentSlide === 0) {
-        setPrevSlideNum(currentSlide);
-        setCurrentSlide(currentSlide - 1);
-        setTimeout(() => {
+      setPrevSlideNum(currentSlide);
+      setCurrentSlide(currentSlide - 1);
+      setTimeout(() => {
+        if (!currentSlide) {
           setCurrentSlide(TOTAL_SLIDES);
-          setSlideMoveToggle(true);
-        }, 300);
-      } else {
-        setPrevSlideNum(currentSlide);
-        setCurrentSlide(currentSlide - 1);
-        setTimeout(() => {
-          setSlideMoveToggle(true);
-        }, 300);
-      }
+        }
+        setSlideMoveToggle(true);
+      }, 300);
     }
   };
 
