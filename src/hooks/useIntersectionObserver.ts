@@ -14,7 +14,6 @@ const useIntersectionObserver = (
 
   const updateEntry = (entries: IntersectionObserverEntry[]): void => {
     const [entry] = entries;
-
     setEntry(entry);
   };
 
