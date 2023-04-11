@@ -13,14 +13,14 @@ const fetchData = async (key: string) => {
 const InfinityImage = () => {
   const pageRef = useRef(1);
 
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     ["items", pageRef.current],
     () => fetchData("items")
   );
   
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>(data);
 
-  // if (isFetching)
+  // if (isError)
   //   return <FetchingError>{`서버에서 문제가 생겼나봐요`}</FetchingError>;
   // if (isLoading) return <FetchingError>{`로딩중이에요!`}</FetchingError>;
 
@@ -29,6 +29,12 @@ const InfinityImage = () => {
       setMapList(data);
     }
   }, [data]);
+
+  useEffect(() => {
+    if (isError) {
+      console.log("서버에서 문제가 생겼나봐요");
+    }
+  }, [isError]);
 
   return (
     <InfinityImageLayout>
