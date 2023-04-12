@@ -18,13 +18,13 @@ const useIntersectionObserver = (
   };
 
   useEffect(() => {
-    const targer = targetRef?.current;
+    const target = targetRef?.current;
 
-    if (isIntersecting || !targer) return;
+    if (isIntersecting || !target) return;
 
     const observer = new IntersectionObserver(updateEntry, options);
 
-    observer.observe(targer);
+    observer.observe(target);
 
     return () => {
       observer.disconnect();
@@ -36,6 +36,8 @@ const useIntersectionObserver = (
     options.threshold,
     isIntersecting,
   ]);
+
+  console.log(entry);
 
   return entry;
 };

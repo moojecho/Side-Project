@@ -53,8 +53,7 @@ const InfinityImageLayout = styled.div`
   min-height: 300px;
   margin: auto;
   flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   @media only screen and (max-width: 480px) {
     width: 350px;
     min-height: 450px;
