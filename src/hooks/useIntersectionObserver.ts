@@ -37,8 +37,6 @@ const useIntersectionObserver = (
     isIntersecting,
   ]);
 
-  console.log(entry);
-
   return entry;
 };
 

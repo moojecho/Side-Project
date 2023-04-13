@@ -5,7 +5,7 @@ const Footer = () => {
     <FooterLayout>
       <TeamInfoLayout>
         {
-          "상호명: (주)VisitCat \n팀원: 조무제(FE) | 조무제 (BE)\n주소: 서울특별시 강서구 금낭화로"
+          "상호명: (주)VisitCat \n팀원: 조무제(FE) | 조무제 (BE)\n주소: 서울특별시 강서구 금낭화로 \n깃허브: https://github.com/moojecho/VisitCat"
         }
       </TeamInfoLayout>
     </FooterLayout>

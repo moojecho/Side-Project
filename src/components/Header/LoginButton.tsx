@@ -25,7 +25,7 @@ const LoginButton = () => {
 const LoginButtonLayout = styled.button`
   width: 60px;
   height: 35px;
-  margin-right: 15px;
+  margin-right: 10px;
   border: 1px solid #dbdbdb;
   border-radius: 10px;
   display: flex;

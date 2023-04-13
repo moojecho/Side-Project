@@ -85,7 +85,7 @@ const MapList = () => {
   useEffect(() => {
     setMapList(getDistance);
   }, [getDistance]);
-console.log(mapList);
+  
   return (
     <MapListLayout>
       {mapList.length ? (
