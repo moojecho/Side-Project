@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DaumPostcode from "react-daum-postcode";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch } from "../../redux/hooks";
 
 import * as allTypes from "./type";
 import { __sendMapInfo } from "../../redux/modules/MapSlice";
