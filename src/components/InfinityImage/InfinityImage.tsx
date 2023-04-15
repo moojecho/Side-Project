@@ -20,10 +20,6 @@ const InfinityImage = () => {
   
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>(data);
 
-  // if (isError)
-  //   return <FetchingError>{`서버에서 문제가 생겼나봐요`}</FetchingError>;
-  // if (isLoading) return <FetchingError>{`로딩중이에요!`}</FetchingError>;
-
   useEffect(() => {
     if (data) {
       setMapList(data);
