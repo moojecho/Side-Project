@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useGeolocation, useGetDistance } from "../../hooks/index";
+import { useGetDistance } from "../../hooks/index";
 import { __receiveMapInfo } from "../../redux/modules/MapSlice";
 import * as allTypes from "./type";
 
