@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -17,7 +17,7 @@ const MapList = () => {
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>([]);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
-  const slidesLength = () => {
+  const slideMargin = useMemo(() => {
     if (TOTAL_SLIDES === 1) {
       return `10px 200px auto 200px`;
     } else if (TOTAL_SLIDES === 2) {
@@ -25,27 +25,26 @@ const MapList = () => {
     } else if (TOTAL_SLIDES === 3) {
       return `10px 37.5px auto 37.5px`;
     } else {
-      return `10px 22.5px auto 22.5px`;
+      return `10px 39px auto 39px`;
     }
-  };
+  }, [TOTAL_SLIDES]);
 
-  //다음 슬라이드 버튼-------------------------------------------------------
-  const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES - 4) {
-      setTimeout(() => setCurrentSlide(0), 0);
-    } else {
-      setCurrentSlide(currentSlide + 1);
+  //슬라이드 버튼-------------------------------------------------------
+  const NextSlide = useCallback(() => {
+    if (TOTAL_SLIDES > 4) {
+      currentSlide >= TOTAL_SLIDES - 4
+        ? setTimeout(() => setCurrentSlide(0), 0)
+        : setCurrentSlide(currentSlide + 1);
     }
-  };
+  }, [currentSlide, TOTAL_SLIDES]);
 
-  //이전 슬라이드 버튼-------------------------------------------------------
-  const PrevSlide = () => {
-    if (currentSlide === 0) {
-      setTimeout(() => setCurrentSlide(TOTAL_SLIDES - 4), 0);
-    } else {
-      setCurrentSlide(currentSlide - 1);
+  const PrevSlide = useCallback(() => {
+    if (TOTAL_SLIDES > 4) {
+      currentSlide === 0
+        ? setTimeout(() => setCurrentSlide(TOTAL_SLIDES - 4), 0)
+        : setCurrentSlide(currentSlide - 1);
     }
-  };
+  }, [currentSlide, TOTAL_SLIDES]);
 
   //카카오 맵 api-------------------------------------------------------------
 
@@ -85,7 +84,9 @@ const MapList = () => {
   useEffect(() => {
     setMapList(getDistance);
   }, [getDistance]);
-  
+
+  console.log("렉 체크");
+
   return (
     <MapListLayout>
       {mapList.length ? (
@@ -95,11 +96,14 @@ const MapList = () => {
             <Slide currentSlide={currentSlide}>
               {mapList?.map((list) => {
                 return (
-                  <MapCard key={list._id} marginChange={slidesLength()}>
+                  <MapCard key={list._id} marginChange={slideMargin}>
                     <CatPosition id={list.mapNum} />
                     <PositionInformation>
                       {list.catLocation}
                     </PositionInformation>
+                    <DistanceLayout>
+                      {`나와의 거리:${list.distance}km`}
+                    </DistanceLayout>
                   </MapCard>
                 );
               })}
@@ -129,9 +133,6 @@ const MapListLayout = styled(CenterLayout)`
   overflow: hidden;
   white-space: pre-wrap;
   text-align: center;
-  @media only screen and (max-width: 768px) {
-    width: 495px;
-  }
   @media only screen and (max-width: 480px) {
     width: 360px;
     height: 250px;
@@ -148,7 +149,7 @@ const SlideLayout = styled.div`
 const Slide = styled.div<allTypes.currentSlide>`
   display: flex;
   transition: all 0.7s ease-in-out;
-  transform: ${(props) => `translateX(-${props.currentSlide * 230}px)`};
+  transform: ${(props) => `translateX(-${props.currentSlide * 240}px)`};
   @media only screen and (max-width: 480px) {
     transform: ${(props) => `translateX(-${props.currentSlide * 161}px)`};
   }
@@ -172,6 +173,7 @@ const MapCard = styled(CenterLayout)<{ marginChange: string }>`
 const CatPosition = styled.div`
   width: 160px;
   height: 22vh;
+  border-radius: 10px;
   min-height: 180px;
   margin-bottom: 10px;
   @media only screen and (max-width: 480px) {
@@ -183,8 +185,8 @@ const CatPosition = styled.div`
 
 const PositionInformation = styled.div`
   width: 160px;
-  height: 5vh;
-  font-size: 14px;
+  height: 3vh;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   white-space: pre-line;
@@ -195,6 +197,15 @@ const PositionInformation = styled.div`
     font-size: 8px;
     margin: -5px 0 0 5px;
   }
+`;
+
+const DistanceLayout = styled.div`
+  width: 140px;
+  height: 2vh;
+  margin: 10px 0 0 -15px;
+  display: flex;
+  float: left;
+  font-size: 12px;
 `;
 
 const CarouselLeftButton = styled.button`
