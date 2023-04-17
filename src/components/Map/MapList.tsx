@@ -85,8 +85,6 @@ const MapList = () => {
     setMapList(getDistance);
   }, [getDistance]);
 
-  console.log("렉 체크");
-
   return (
     <MapListLayout>
       {mapList.length ? (
