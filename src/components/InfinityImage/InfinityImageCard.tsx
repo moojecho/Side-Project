@@ -26,13 +26,7 @@ const InfinityImageCard = ({ mapList }: { mapList: allTypes.mapInfo[] }) => {
   }, [mapList]);
 
   useEffect(() => {
-    if (imageRef.current) {
-      console.log(imageRef.current.scrollTop);
-    }
-  }, [imageRef.current]);
-
-  useEffect(() => {
-    if (scrollBottomToggle) {
+    if (scrollBottomToggle && imageList.length > 49) {
       setImageList((prevImageList) => {
         const newImageList = [
           ...prevImageList,
@@ -45,27 +39,109 @@ const InfinityImageCard = ({ mapList }: { mapList: allTypes.mapInfo[] }) => {
 
   return (
     <ImageCardLayout ref={imageRef}>
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={"https://cdn.kidshankook.kr/news/photo/202302/6148_17335_2630.jpg"} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
-      <ImageCard src={'https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg'} />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={"https://cdn.kidshankook.kr/news/photo/202302/6148_17335_2630.jpg"}
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
+      <ImageCard
+        src={
+          "https://www.animals.or.kr/api/files/thumbnails/39900-ea04b035-6c67-42f4-94fc-c2331dd144c8.jpg"
+        }
+      />
       {imageList?.map((list) => {
         return list.image ? (
           <ImageCard key={list._id} src={list.image} />
@@ -83,6 +159,9 @@ const ImageCardLayout = styled.div`
   flex-wrap: wrap;
   overflow: scroll;
   overflow-x: hidden;
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    width: 760px;
+  }
   @media only screen and (max-width: 480px) {
     width: 350px;
     min-height: 450px;

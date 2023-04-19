@@ -28,6 +28,10 @@ const AddMapButtonLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 560px) and (max-width: 1024px) and (orientation: landscape) {
+  width: 560px;
+  background-color: black;
+}
   @media only screen and (max-width: 480px) {
     height: 50px;
     margin: 5px auto 5px auto;
@@ -35,7 +39,7 @@ const AddMapButtonLayout = styled.div`
 `;
 const AddButton = styled.button`
   width: 35vw;
-  min-width: 400px;
+  /* min-width: 400px; */
   height: 6vh;
   min-height: 50px;
   font-size: 150%;

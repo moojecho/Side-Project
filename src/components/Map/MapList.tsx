@@ -99,9 +99,9 @@ const MapList = () => {
                     <PositionInformation>
                       {list.catLocation}
                     </PositionInformation>
-                    <DistanceLayout>
+                    {/* <DistanceLayout>
                       {`나와의 거리:${list.distance}km`}
-                    </DistanceLayout>
+                    </DistanceLayout> */}
                   </MapCard>
                 );
               })}
@@ -131,6 +131,9 @@ const MapListLayout = styled(CenterLayout)`
   overflow: hidden;
   white-space: pre-wrap;
   text-align: center;
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    width: 720px;
+  }
   @media only screen and (max-width: 480px) {
     width: 360px;
     height: 250px;
