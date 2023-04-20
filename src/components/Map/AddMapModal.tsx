@@ -128,7 +128,7 @@ const Modal = styled.div`
   z-index: 9999;
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 10px black;
-
+  
   @media only screen and (max-width: 480px) {
     width: 300px;
     height: 400px;

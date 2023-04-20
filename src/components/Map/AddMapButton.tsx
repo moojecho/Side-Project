@@ -13,6 +13,7 @@ const AddMapButton = () => {
   const changeToggle = (MapToggle: boolean) => {
     dispatch(changeMapToggle(MapToggle));
   };
+
   return (
     <AddMapButtonLayout>
       <AddButton onClick={() => changeToggle(addMapToggle)}>
@@ -28,10 +29,9 @@ const AddMapButtonLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 560px) and (max-width: 1024px) and (orientation: landscape) {
-  width: 560px;
-  background-color: black;
-}
+  @media only screen and (max-width: 1024px) {
+    width: 560px;
+  }
   @media only screen and (max-width: 480px) {
     height: 50px;
     margin: 5px auto 5px auto;
@@ -50,6 +50,9 @@ const AddButton = styled.button`
   margin: auto;
   font-family: NotoSanskr-Bold;
   cursor: pointer;
+  @media only screen and (max-width: 1024px) {
+    min-width: 330px;
+  }
   @media only screen and (max-width: 480px) {
     width: 250px;
     min-width: 200px;

@@ -31,13 +31,12 @@ const HeaderLayout = styled.div`
   height: 8vh;
   min-height: 50px;
   background-color: white;
-  border-bottom: 0.5px solid gray;
   position: fixed;
   z-index: 15;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 0.5px 1px gray;
+  box-shadow: 0 0.5px 2px gray;
   @media only screen and (max-width: 480px) {
     min-width: 50px;
     min-height: 50px;

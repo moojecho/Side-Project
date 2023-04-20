@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import styled from "styled-components";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -8,6 +8,7 @@ import * as allTypes from "./type";
 
 const MapList = () => {
   const dispatch = useAppDispatch();
+  const slideRef = useRef<HTMLDivElement>(null);
   const example: allTypes.mapInfo[] = useAppSelector(
     (state: any) => state.catLoctionMap.mapList
   );
@@ -45,6 +46,8 @@ const MapList = () => {
         : setCurrentSlide(currentSlide - 1);
     }
   }, [currentSlide, TOTAL_SLIDES]);
+
+  console.log(currentSlide);
 
   //카카오 맵 api-------------------------------------------------------------
 
@@ -85,8 +88,10 @@ const MapList = () => {
     setMapList(getDistance);
   }, [getDistance]);
 
+  console.log(slideRef.current?.style.width)
+
   return (
-    <MapListLayout>
+    <MapListLayout ref={slideRef}>
       {mapList.length ? (
         <>
           <CarouselLeftButton onClick={PrevSlide}>{"<"}</CarouselLeftButton>
@@ -131,7 +136,7 @@ const MapListLayout = styled(CenterLayout)`
   overflow: hidden;
   white-space: pre-wrap;
   text-align: center;
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  @media only screen and (max-width: 1024px) {
     width: 720px;
   }
   @media only screen and (max-width: 480px) {

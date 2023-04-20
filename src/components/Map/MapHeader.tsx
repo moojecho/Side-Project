@@ -12,7 +12,7 @@ const MapHeader = () => {
 const MapHeaderLayout = styled.div`
   width: 960px;
   height: 50px;
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  @media only screen and (max-width: 1024px) {
     width: 760px;
   }
   @media only screen and (max-width: 480px) {
