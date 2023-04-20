@@ -17,6 +17,7 @@ const MapList = () => {
   const TOTAL_SLIDES: allTypes.TotalSlides = example.length;
   const [mapList, setMapList] = useState<allTypes.mapInfo[]>([]);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [cardsPerScreen, setCardsPerScreen] = useState<number>(4);
 
   const slideMargin = useMemo(() => {
     if (TOTAL_SLIDES === 1) {
@@ -31,21 +32,24 @@ const MapList = () => {
   }, [TOTAL_SLIDES]);
 
   //슬라이드 버튼-------------------------------------------------------
+
   const NextSlide = useCallback(() => {
-    if (TOTAL_SLIDES > 4) {
-      currentSlide >= TOTAL_SLIDES - 4
+    if (TOTAL_SLIDES > cardsPerScreen) {
+      console.log(currentSlide);
+      console.log(cardsPerScreen);
+      currentSlide >= TOTAL_SLIDES - cardsPerScreen
         ? setTimeout(() => setCurrentSlide(0), 0)
         : setCurrentSlide(currentSlide + 1);
     }
-  }, [currentSlide, TOTAL_SLIDES]);
+  }, [currentSlide, TOTAL_SLIDES, cardsPerScreen]);
 
   const PrevSlide = useCallback(() => {
-    if (TOTAL_SLIDES > 4) {
+    if (TOTAL_SLIDES > cardsPerScreen) {
       currentSlide === 0
-        ? setTimeout(() => setCurrentSlide(TOTAL_SLIDES - 4), 0)
+        ? setTimeout(() => setCurrentSlide(TOTAL_SLIDES - cardsPerScreen), 0)
         : setCurrentSlide(currentSlide - 1);
     }
-  }, [currentSlide, TOTAL_SLIDES]);
+  }, [currentSlide, TOTAL_SLIDES, cardsPerScreen]);
 
   console.log(currentSlide);
 
@@ -88,7 +92,26 @@ const MapList = () => {
     setMapList(getDistance);
   }, [getDistance]);
 
-  console.log(slideRef.current?.style.width)
+  useEffect(() => {
+    //화면 너비에 따라 캐러셀에 보여지는 카드 갯수 변화 감지
+    const handleResize = () => {
+      if(slideRef.current){
+        const width = slideRef.current.offsetWidth;
+      if (width >= 960) {
+        setCardsPerScreen(4);
+      } else if (width >= 480) {
+        setCardsPerScreen(3);
+      } else {
+        setCardsPerScreen(2);
+      }
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <MapListLayout ref={slideRef}>
