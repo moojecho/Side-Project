@@ -14,7 +14,7 @@ const Footer = () => {
 
 const FooterLayout = styled.div`
   width: 100vw;
-  min-height: 250px;
+  min-height: 200px;
   background-color: #ff9500;
   display: flex;
   align-items: center;
@@ -30,7 +30,9 @@ const TeamInfoLayout = styled.div`
   height: 200px;
   color: white;
   font-size: 12px;
-  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  margin: 0px 0 0  50px;
   white-space: pre-wrap;
   @media only screen and (max-width: 480px) {
     height: 100px;
