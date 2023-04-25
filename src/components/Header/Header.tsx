@@ -18,8 +18,6 @@ const Header = () => {
       <LogoLayout>
         <Logo src={logo} />
       </LogoLayout>
-      <LoginSignLayout>
-      </LoginSignLayout>
     </HeaderLayout>
   );
 };
