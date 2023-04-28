@@ -157,9 +157,11 @@ const CancleButton = styled.button`
 `;
 
 const ImageLayout = styled(CenterLayout)`
-  width: 250px;
+  width: 300px;
   height: 200px;
-  border: 1px solid black;
+  box-shadow: 1px 1px 2px gray;
+  background-color: #b3acac;
+  opacity: 0.8;
   margin: auto;
   margin-top: -20px;
 `;
