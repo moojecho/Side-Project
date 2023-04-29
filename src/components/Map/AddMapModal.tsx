@@ -9,7 +9,7 @@ import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
 const AddMapModal = () => {
-  const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+  // const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
   const none = /[\s+]/;
   const regNum = /[0-9]/;
   const dispatch = useAppDispatch();
@@ -92,12 +92,6 @@ const AddMapModal = () => {
   );
 };
 
-// korean.test(e.target.value) || none.test(e.target.value)
-//                 ? setMapInformation({
-//                     ...mapInformation,
-//                     catLocation: e.target.value,
-//                   })
-//                 : window.alert("한글만 사용해주세요!")
 const CenterLayout = styled.div`
   display: flex;
   justify-content: center;
