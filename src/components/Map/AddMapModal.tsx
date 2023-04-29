@@ -4,6 +4,7 @@ import DaumPostcode from "react-daum-postcode";
 import { useAppDispatch } from "../../redux/hooks";
 
 import * as allTypes from "./type";
+import { logo } from "../../static/index"
 import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
@@ -43,6 +44,7 @@ const AddMapModal = () => {
       <ModalBackGround onClick={() => cancleLoginModal(true)} />
       <Modal>
         <CancleLayout>
+          <LogoLayout src={logo} />
           <CancleButton onClick={() => cancleLoginModal(true)}>✖</CancleButton>
         </CancleLayout>
         <ImageLayout>이미지 첨부</ImageLayout>
@@ -79,7 +81,9 @@ const AddMapModal = () => {
       {daumMapApiToggle ? (
         <DaumMapApiModal>
           <DaumMapApiModalHeader>
-            <CancleMapApiModal onClick={daumMapModel.onOffMapApiModal}>✖</CancleMapApiModal>
+            <CancleMapApiModal onClick={daumMapModel.onOffMapApiModal}>
+              ✖
+            </CancleMapApiModal>
           </DaumMapApiModalHeader>
           <DaumPostcode onComplete={daumMapModel.selectAddress} />
         </DaumMapApiModal>
@@ -128,7 +132,7 @@ const Modal = styled.div`
   z-index: 9999;
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 10px black;
-  
+
   @media only screen and (max-width: 480px) {
     width: 300px;
     height: 400px;
@@ -137,9 +141,10 @@ const Modal = styled.div`
 
 const CancleLayout = styled.div`
   width: 460px;
-  height: 50px;
+  height: 80px;
   margin: auto;
   margin-top: 10px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: right;
   @media only screen and (max-width: 480px) {
@@ -148,10 +153,17 @@ const CancleLayout = styled.div`
     margin-top: 5px;
   }
 `;
-
+const LogoLayout = styled.img`
+  width: 100px;
+  height: 80px;
+  margin: auto;
+  margin-right: 150px;
+`;
 const CancleButton = styled.button`
+  width: 30px;
   font-size: 20px;
   border: none;
+  margin-bottom: 30px;
   background-color: #fff;
   cursor: pointer;
 `;
