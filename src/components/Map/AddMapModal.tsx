@@ -4,12 +4,11 @@ import DaumPostcode from "react-daum-postcode";
 import { useAppDispatch } from "../../redux/hooks";
 
 import * as allTypes from "./type";
-import { logo } from "../../static/index"
+import { logo } from "../../static/index";
 import { __sendMapInfo } from "../../redux/modules/MapSlice";
 import { changeMapToggle } from "../../redux/modules/ModalSlice";
 
 const AddMapModal = () => {
-  // const korean = /^[\sㄱ-ㅎㅏ-ㅣ가-힣]+$/;
   const none = /[\s+]/;
   const regNum = /[0-9]/;
   const dispatch = useAppDispatch();
