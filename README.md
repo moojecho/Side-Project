@@ -23,6 +23,7 @@
 ✔️ 실시간 위치 정보를 통해 유저 근처의 길 동물들과 만나볼 수 있습니다. <br>
 
 ✔️ 여러 유저들이 제공한 사진을 통해 반려동물, 유기 동물의 정보와 위치를 알 수 있습니다. <br>
+![image](https://user-images.githubusercontent.com/107379879/235595510-3ebdcebf-7d6a-4af7-8bf7-c218f9c02be2.png)
 <br><br>
 ## Contributors💻
 |조무제|
