@@ -22,10 +22,8 @@
 
 ✔️ 실시간 위치 정보를 통해 유저 근처의 길 동물들과 만나볼 수 있습니다. <br>
 
-✔️ 여러 유저들이 제공한 사진을 통해 반려동물, 유기 동물의 정보와 위치를 알 수 있습니다. <br><br>
- <h2> 📙 시연 정보 📙</h2>
- tistory: https://wpfh188.tistory.com/62
-<br><br><br>
+✔️ 여러 유저들이 제공한 사진을 통해 반려동물, 유기 동물의 정보와 위치를 알 수 있습니다. <br>
+<br><br>
 ## Contributors💻
 |조무제|
 |-----|
@@ -51,6 +49,12 @@
  조무제: https://github.com/moojecho <br>
 
 <br><br>
+
+ 
+<h2>📙 시연 정보 📙</h2>
+ <br>
+ 
+ tistory: https://wpfh188.tistory.com/62
 
 
 <br><br>
