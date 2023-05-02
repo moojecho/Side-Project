@@ -201,10 +201,11 @@ const MapCard = styled(CenterLayout)<{ marginChange: string }>`
 
 const CatPosition = styled.div`
   width: 160px;
-  height: 22vh;
+  height: 24vh;
+  background-color: black;
   border-radius: 10px;
   min-height: 180px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   @media only screen and (max-width: 480px) {
     width: 120px;
     height: 150px;

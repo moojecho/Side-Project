@@ -25,6 +25,7 @@ const MapLayout = styled.div`
     width: 760px;
   }
   @media only screen and (max-width: 480px) {
+    width: 100vw;
     height: 410px;
     min-height: 400px;
   }

@@ -57,11 +57,11 @@ const ImageCardLayout = styled.div`
   overflow: scroll;
   overflow-x: hidden;
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    width: 760px;
+    width: 730px;
   }
   @media only screen and (max-width: 480px) {
     width: 350px;
-    min-height: 450px;
+    min-height: 350px;
   }
 `;
 

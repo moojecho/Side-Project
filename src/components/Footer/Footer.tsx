@@ -21,6 +21,7 @@ const FooterLayout = styled.div`
   @media only screen and (max-width: 480px) {
     width: 100vw;
     justify-content: center;
+    align-items:start;
     min-height: 125px;
   }
 `;
@@ -32,12 +33,12 @@ const TeamInfoLayout = styled.div`
   font-size: 12px;
   display: flex;
   align-items: center;
-  margin: 0px 0 0  50px;
+  margin: 0 0 0  50px;
   white-space: pre-wrap;
   @media only screen and (max-width: 480px) {
     height: 100px;
     font-size: 10px;
-    margin: 15px 0px 0px 25px;
+    margin: -5px 0px 0px 25px;
   }
 `;
 

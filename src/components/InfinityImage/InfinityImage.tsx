@@ -55,7 +55,7 @@ const InfinityImageLayout = styled.div`
   }
   @media only screen and (max-width: 480px) {
     width: 350px;
-    min-height: 450px;
+    min-height: 440px;
   }
 `;
 const ImageLayoutTitle = styled.p`

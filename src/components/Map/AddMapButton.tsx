@@ -33,6 +33,7 @@ const AddMapButtonLayout = styled.div`
     width: 560px;
   }
   @media only screen and (max-width: 480px) {
+    width: 100vw;
     height: 50px;
     margin: 5px auto 5px auto;
   }
